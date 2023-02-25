@@ -1,5 +1,8 @@
 //initialize database
-require('./config/database')
+require('./config/database');
+
+//initialize firebase
+require('./config/firebase');
 
 //initializing express
 const express = require('express');
