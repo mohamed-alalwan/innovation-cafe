@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 *{
     margin: 0;
@@ -12,9 +12,7 @@
 } */
 
 header {
-    min-height: 100vh;
     width: 100%;
-    background-image: url(../images/wallpaper.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -27,18 +25,48 @@ header nav {
     background-color: #1E1E1E;
 }
 
-.ctaHeader {
+img {
+    width: 100%;
+    background-image: url(../images/wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+/* .ctaHeader {
     
+} */
+
+.homeContainer {
+    height: 700px;
+    width: 100%;
+    position: relative;
+}
+
+.homeContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.text {
+    width: 70%;
+    padding: 20px;
+    background-color:#1e1e1e55;
 }
 
 .textContainer {
+    position: absolute;
     width: 100%;
-    
-    /* AirBnb top and left, might need to change (Mid-section) */
-    top: 50;
-    left: 50;
-
-    transform: translate(0, -1200px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    /* transform: translate(0, -1200px); */
     text-align: center;
 }
 
@@ -61,14 +89,17 @@ header nav {
 footer {
     padding: 0;
     margin: 0;
-    display: inline;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     width: 100%;
-    height: 100px;
+    /* height: 100px; */
+    font-weight: 100;
     font-style: normal;
     font-size: 28px;
-    line-height: 50px;
+    /* line-height: 50px; */
     color: #FFFFFF;
     background-color: #1E1E1E;
 }
