@@ -266,7 +266,6 @@ footer {
 .progressStep::before {
     counter-increment: step;
     content: counter(step);
-    
 }
 
 .progressStep::after {

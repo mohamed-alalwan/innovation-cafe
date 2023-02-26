@@ -22,6 +22,7 @@ exports.auth_signup_post = async (req, res) => {
 // HTTP Sign in Get
 exports.auth_signin_get = (req, res) => {
     console.log('Status: ' + (auth.currentUser ? 'user is signed in' : 'no user is signed in'));
+    console.log(auth.currentUser);
     res.render('auth/signin');
 }
 
