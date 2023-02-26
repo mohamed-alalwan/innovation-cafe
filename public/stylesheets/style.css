@@ -33,6 +33,15 @@ body{
     text-align: center;
 }
 
+.haveAcct {
+    /* text-align: center; */
+    display: grid;
+    place-items: center;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
 /* Sign Up Input Styling */
 
 .SignUpInput {
@@ -128,7 +137,7 @@ body{
     background-color: #1e1e1e;
     width: 0%;
     transition: 0.3s;
-}
+} 
 
 .progressBar {
     position: relative;
@@ -170,4 +179,30 @@ body{
     color: #1e1e1e;
 }
 
-/* End of the CSS Coding */
+/* End of the CSS Coding for the Sign up */
+
+/* Styling for the SIGN UP PAGE*/
+/* Beginning of the CSS Coding */
+
+.signInBtn {
+    width: 100%;
+}
+
+.create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.forgetPArent {
+    display: grid;
+    place-items: center;
+}
+
+.forget {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+/* End of the CSS coding for the Sign in */
