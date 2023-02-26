@@ -25,6 +25,13 @@ header nav {
     background-color: #1E1E1E;
 }
 
+.ctaHeader {
+    display: flex;
+    justify-content:center;
+    margin-left: auto; 
+    margin-right: 0;
+}
+        
 img {
     width: 100%;
     background-image: url(../images/wallpaper.jpg);
@@ -279,6 +286,23 @@ footer {
     color: #1e1e1e;
 }
 
+#ulCss{
+    position: absolute;
+width: 51px;
+height: 20px;
+left: calc(50% );
+top: calc(50%);
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+
+color: #FFFFFF;
+}
+/* End of the CSS Coding */
+
+
 /* End of the CSS Coding for the Sign up */
 
 /* Styling for the SIGN UP PAGE*/
@@ -306,3 +330,4 @@ footer {
     color: #1e1e1e;
 }
 /* End of the CSS coding for the Sign in */
+
