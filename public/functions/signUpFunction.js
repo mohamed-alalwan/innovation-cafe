@@ -12,11 +12,23 @@ window.onload = () => {
     nextBtn.forEach(btn =>{
         btn.addEventListener('click', () => {
             formStepNum++
-            updateFormSteps()
-            updateProgressbar()
-            console.log('test')
+                updateFormSteps()
+                updateProgressbar()
+                console.log('test')
+            // if(validateForm(formSteps[formStepNum])){
+                
+            // }
         })
     })
+
+    // function validateForm(formID){
+    //     const form = document.getElementById(formID)
+    //     if(formID == 'account'){
+    //         form.children.forEach(child => {
+            
+    //         });
+    //     }
+    // }
     
     prevBtn.forEach(btn =>{
         btn.addEventListener('click', () => {
@@ -49,4 +61,4 @@ window.onload = () => {
     console.log(proSteps);
     }
     
-    }
+}
