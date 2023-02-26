@@ -1,16 +1,20 @@
-// Import the functions you need from the SDKs you need
+require('dotenv').config();
 const firebase = require("firebase/app");
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+const apiKey = process.env.API_KEY;
+const authDomain = process.env.AUTH_DOMAIN;
+const projectId = process.env.PROJECT_ID;
+const storageBucket = process.env.STORAGE_BUCKET;
+const messagingSenderId = process.env.MESSAGING_SENDER_ID;
+const appId = process.env.APP_ID;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDxa50UMTYoGfu0lHzZDSDbloJMlA9B0EA",
-  authDomain: "innovation-cafe.firebaseapp.com",
-  projectId: "innovation-cafe",
-  storageBucket: "innovation-cafe.appspot.com",
-  messagingSenderId: "424350471459",
-  appId: "1:424350471459:web:9aa8ab8d76c2c8d8c02896"
+  apiKey: apiKey,
+  authDomain: authDomain,
+  projectId: projectId,
+  storageBucket: storageBucket,
+  messagingSenderId: messagingSenderId,
+  appId: appId
 };
 
 // Initialize Firebase
