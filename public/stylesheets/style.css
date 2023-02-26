@@ -8,3 +8,166 @@ body{
     background color: #1E1E1E
     font color: #FFFFFF
 */
+
+/* Styling for the SIGN UP PAGE*/
+/* Beginning of the CSS Coding */
+
+/* Page styling */
+.SignUpPage {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.form {
+    width: clamp(320px, 30%, 430px);
+    margin: 0 auto;
+    border: 3px solid #1e1e1e;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+
+}
+
+.textCenter {
+    text-align: center;
+}
+
+/* Sign Up Input Styling */
+
+.SignUpInput {
+    display: block;
+    width: 92%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+.signUpLabel {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.inputGroup {
+    margin: 1.5rem 0;
+}
+
+/* Button Styling */
+
+.btn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+}
+
+.width50 {
+    width: 39%;
+    
+}
+
+.rightBtn {
+    margin-left: auto;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #1e1e1e;
+    box-shadow: 0 0 0 3px #1e1e1e;
+    border-radius: 0.25rem;
+}
+
+.btnGroup {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Step Styling */
+
+.formStep {
+    display: none;
+    animation: animate 0.5s;
+    transform-origin: top;
+}
+
+@keyframes animate {
+    from{
+        transform: scale(1, 0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.formActiveStep {
+    display: block;
+}
+
+/* Progress Bar */
+
+.progressBar::before, .progress{
+    content: "";
+    position: absolute;
+    top: 43%;
+    transform: translate();
+    background-color: #cecece;
+    height: 4px;
+    width: 100%;
+    counter-reset: step;
+    z-index: -1;
+}
+
+.progress {
+    background-color: #1e1e1e;
+    width: 0%;
+    transition: 0.3s;
+}
+
+.progressBar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 2.5rem;
+}
+
+.progressStep {
+    width: 35px;
+    height: 35px;
+    background-color: #cecece;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressStep::before {
+    counter-increment: step;
+    content: counter(step);
+    
+}
+
+.progressStep::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.1rem);
+    font-size: 0.85rem;
+    color: #b4b4b4;
+}
+
+.progressStepActive {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.progressStepActive::after {
+    color: #1e1e1e;
+}
+
+/* End of the CSS Coding */
