@@ -28,7 +28,11 @@ header nav {
 }
 
 .ctaHeader {
-    
+    display: flex;
+    justify-content:center;
+    margin-left: auto; 
+    margin-right: 0;
+        
 }
 
 .textContainer {
@@ -238,5 +242,18 @@ footer {
 .progressStepActive::after {
     color: #1e1e1e;
 }
+#ulCss{
+    position: absolute;
+width: 51px;
+height: 20px;
+left: calc(50% );
+top: calc(50%);
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
 
+color: #FFFFFF;
+}
 /* End of the CSS Coding */

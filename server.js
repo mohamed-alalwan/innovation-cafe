@@ -30,7 +30,7 @@ const indexRouter = require('./routes/index');
 const authRoute = require('./routes/auth');
 
 //Mount Routers
-app.use('/', indexRouter);
+app.use('/home', indexRouter);
 app.use('/auth', authRoute);
 
 //listen to port
