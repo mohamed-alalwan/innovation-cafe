@@ -4,8 +4,11 @@ const mongoose = require ('mongoose')
 const userSchema = mongoose.Schema({
     firstName: {Type:String, required: true},
     lastName: {Type:String, required: true},
-    Address: {Type:String, required: true},
-    phoneNumber: {Type:String, required: true}
+    area: String,
+    block: String,
+    street: String,
+    house: String,
+    phoneNumber: String
 },
 {
     timestamps: true
