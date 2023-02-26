@@ -5,18 +5,30 @@ window.onload = () => {
     const progress = document.querySelector('#progress')
     const formSteps = document.querySelectorAll('.formStep')
     const proSteps = document.querySelectorAll('.progressStep')
-    const progressActive = document.querySelectorAll('progressStepActive')
+    
     
     let formStepNum = 0
     
     nextBtn.forEach(btn =>{
         btn.addEventListener('click', () => {
             formStepNum++
-            updateFormSteps()
-            updateProgressbar()
-            console.log('test')
+                updateFormSteps()
+                updateProgressbar()
+                console.log('test')
+            // if(validateForm(formSteps[formStepNum])){
+                
+            // }
         })
     })
+
+    // function validateForm(formID){
+    //     const form = document.getElementById(formID)
+    //     if(formID == 'account'){
+    //         form.children.forEach(child => {
+            
+    //         });
+    //     }
+    // }
     
     prevBtn.forEach(btn =>{
         btn.addEventListener('click', () => {
@@ -42,9 +54,11 @@ window.onload = () => {
             proStep.classList.remove('progressStepActive')
         }
     })
+
+    const progressActive = document.querySelectorAll('.progressStepActive')
+
+    progress.style.width = ((progressActive.length - 1) / (proSteps.length - 1)) * 100 + "%"
+    console.log(proSteps);
     }
     
-    
-    progress.style.width = ((progressActive.length -1) / (progressActive.length -1)) * 100 + '%'
-    
-    }
+}

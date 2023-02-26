@@ -10,6 +10,9 @@ exports.auth_signup_get = (req, res) => {
 // HTTP Sign up Post
 exports.auth_signup_post = async (req, res) => {
     firebase.createUserWithEmailAndPassword(auth,req.body.email, req.body.password).then((userCredentials) => {
+        userCredentials.user.displayName = req.body.firstName + " " + req.body.lastName;
+       
+        res.redirect('/');
         console.log(userCredentials.user);
     }).catch(err => {
         console.log(err);
