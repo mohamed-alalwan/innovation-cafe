@@ -1,8 +1,5 @@
-<!-- action="/auth/signup" -->
-<!-- method="POST"  -->
-
 <div class="SignUpPage">
-    <form class="form" >
+    <form class="form" method="POST" action="/auth/signup">
         <h1 class="textCenter"> Welcome to Innovation Cafe</h1>
         <p class="textCenter">Please fill all the required field -*- </p>
         <!-- Progress bar -->
@@ -19,15 +16,15 @@
 
             <div class="inputGroup">
                 <label class="signUpLabel">Email Address *</label>
-                <input name="email" type="email" id="emial" class="SignUpInput" />
+                <input name="email" type="email" class="SignUpInput" />
             </div>
             <div class="inputGroup">
                 <label class="signUpLabel">Password *</label>
-                <input name="password" type="password" id="password" class="SignUpInput" />
+                <input name="password" type="password" class="SignUpInput" />
             </div>
             <div class="inputGroup">
                 <label class="signUpLabel">Confirm Password *</label>
-                <input name="password" type="password" id="Cpassword" class="SignUpInput" />
+                <input name="password" type="password" class="SignUpInput" />
             </div>
             <div>
                 <!-- <a href="#" class="btn btnNext width50 rightBtn">Next</a> -->
@@ -81,7 +78,7 @@
                 <!-- <a href="#" class="btn btnPrevious">Previous</a> -->
                 <button type="button" class="btn btnPrevious">Previous</button>
                 <!-- <a href="#" class="btn btnNext btnSubmit">Submit</a> -->
-                <button type="button" class="btn btnNext btnSubmit">Submit</button>
+                <button type="submit" class="btn btnNext btnSubmit">Submit</button>
             </div>
         </div>
         <a class="haveAcct" href="/auth/signin">Alredy have an account?</a>
