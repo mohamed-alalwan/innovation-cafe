@@ -11,10 +11,6 @@ body {
     /* background-color: #1E1E1E; */
 }
 
-.body{
-    /* background-color: white */
-}
-
 header {
     width: 100%;
     background-position: center;
@@ -216,7 +212,7 @@ footer {
 
 /* Page styling */
 .SignUpPage {
-    margin: 0;
+    margin: 1rem;
     display: grid;
     place-items: center;
     min-height: 100vh;
