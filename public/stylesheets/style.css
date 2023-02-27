@@ -8,6 +8,11 @@ html{
 body {
     margin: 0;
     padding: 0;
+    /* background-color: #1E1E1E; */
+}
+
+.body{
+    /* background-color: white */
 }
 
 header {
@@ -44,35 +49,48 @@ header nav {
     flex-direction: row;
     color: #FFFFFF;
     font-weight: 300;
+    transition: all 0.3s ease-in-out;
+}
+
+.ctaHeader a:hover{
+    color: goldenrod;
+    transition: all 0.3s ease-in-out;
+}
+
+.ctaAuth{
+    margin-right: 15px;
 }
 
 .ctaAuth a {
-    float: left;
     text-align: center;
-    padding: 12px;
+    padding: 10px 30px;
     text-decoration: none;
     font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
-    flex-direction: row;
     color: #FFFFFF;
-    font-weight: 300;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50px;
+    width: 80px;
+    margin-right: 5px;
+    font-weight:500;
+    transition: all 0.3s ease-in-out;
 }
 
 .signup {
-    border: none;
-    border-radius: 4px;
-    color: #1E1E1E;
-    background-color: black;
-    border-bottom: 2px solid;
+   background-color: #FFFFFF;
+   color: #1E1E1E !important;
 }
 
-.signin {
-    border: none;
-    border-radius: 4px;
-    color: #1E1E1E;
-    background-color: blue;
-    border-bottom: 2px solid;
+.signup:hover{
+    color: #FFFFFF !important;
+    background-color: #1E1E1E!important;
+    transition: all 0.3s ease-in-out;
+}
+
+.signin:hover {
+    color: #1E1E1E !important;
+    background-color: #FFFFFF !important;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Title Nav Bar */
@@ -105,7 +123,7 @@ header img {
 } */
 
 .homeContainer {
-    height: 100%;
+    height: 700px;
     width: 100%;
     position: relative;
 }
@@ -113,7 +131,7 @@ header img {
 .homeContainer img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 
 }
 
@@ -124,12 +142,10 @@ header img {
     justify-content: center;
     gap: 40px;
     width: 50%;
-    height: 50%;
+    /* height: 50%; */
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.589);
     color: #FFFFFF;
-
-
 }
 
 .textContainer {
@@ -359,19 +375,31 @@ footer {
     color: #1e1e1e;
 }
 
-#ulCss {
-    position: absolute;
-    width: 51px;
-    height: 20px;
-    left: calc(50%);
-    top: calc(50%);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
+/* Styling for the SIGN in PAGE*/
+/* Beginning of the CSS Coding */
 
-    color: #FFFFFF;
+.signInBtn {
+    width: 100%;
 }
+
+.create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.forgetPArent {
+    display: grid;
+    place-items: center;
+}
+
+.forget {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+/* End of the CSS coding for the Sign in */
 
 /* End of the CSS Coding */
