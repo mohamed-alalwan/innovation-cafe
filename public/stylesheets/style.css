@@ -220,7 +220,7 @@ footer {
 
 /* Styling for the SIGN UP PAGE*/
 /* Beginning of the CSS Coding */
-
+/* the Sign Up Styling has been used for the Sign Up Sign In and Adding items */
 /* Page styling */
 .SignUpPage {
     display: grid;
@@ -276,7 +276,7 @@ footer {
 }
 
 .width50 {
-    width: 39%;
+    width: 50%;
 
 }
 

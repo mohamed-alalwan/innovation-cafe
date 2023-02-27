@@ -20,7 +20,7 @@ exports.item_create_post = (req, res) => {
 
     item.save()
     .then(() => {
-        res.redirect('item/index')
+        res.redirect('/item/index')
     })
     .catch((err) => {
         console.log(err);
