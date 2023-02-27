@@ -9,6 +9,10 @@ const express = require('express');
 const port = 4000;
 const app = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
+
+//initializing cookie-parser
+app.use(cookieParser());
 
 //initializing body-parser
 app.use(express.json());
@@ -28,14 +32,14 @@ app.use(expressLayouts);
 //Import Routers
 const indexRouter = require('./routes/index');
 const authRoute = require('./routes/auth');
-const itemRoute = require('./routes/item')
+const itemRoute = require('./routes/item');
 
 //Mount Routers
 app.use('/home', indexRouter);
 app.use('/auth', authRoute);
 app.use('/item', itemRoute);
 app.get('/', (req, res) => {
-    res.redirect('/home')
+    res.redirect('/home');
 });
 
 //listen to port
