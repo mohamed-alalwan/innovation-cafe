@@ -5,7 +5,7 @@ const auth = firebase.getAuth();
 // HTTP Sign up Get
 exports.auth_signup_get = (req, res) => {
     res.render('auth/signup', {
-        user: auth.currentUser
+        auth: auth.currentUser
     });
 }
 
@@ -45,7 +45,7 @@ exports.auth_signup_post = async (req, res) => {
 exports.auth_signin_get = (req, res) => {
     // console.log(auth.currentUser);
     res.render('auth/signin', {
-        user: auth.currentUser
+        auth: auth.currentUser
     });
 }
 
@@ -62,9 +62,7 @@ exports.auth_signin_post = async (req, res) => {
 // HTTP Sign out Get
 exports.auth_signout_get = (req, res) => {
     firebase.signOut(auth).then(() => {
-        res.redirect('/auth/signin', {
-            user: auth.currentUser
-        });
+        res.redirect('/auth/signin');
     }).catch(err => {
         console.log(err);
     });

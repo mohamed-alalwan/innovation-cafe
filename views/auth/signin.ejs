@@ -1,4 +1,4 @@
-<% if (!user) { %>
+<% if (!auth) { %>
     <div class="SignUpPage">
         <form class="form" method="POST" action="/auth/signin">
             <h1 class="textCenter">Sign In</h1>
@@ -23,7 +23,7 @@
     </div>
 <% } %>
 
-<% if (user) { %>
+<% if (auth) { %>
     <p>You are already signed-in!</p>
 <% }%>
 

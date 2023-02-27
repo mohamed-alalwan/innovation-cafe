@@ -6,7 +6,7 @@ const auth = firebase.getAuth();
 // HTTP index get items
 exports.item_index_get = (req, res) => {
     res.render('item/index', {
-        user: auth.currentUser
+        auth: auth.currentUser
     })
 }
 
@@ -14,7 +14,7 @@ exports.item_index_get = (req, res) => {
 exports.item_create_get = (req, res) => {
     Item.find()
     .then((items) => {
-        res.render('item/add', {items, user: auth.currentUser})
+        res.render('item/add', {items, auth: auth.currentUser})
     })
 }
 
