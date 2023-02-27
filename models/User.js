@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     block: String,
     street: String,
     house: String,
-    phoneNumber: String
+    phoneNumber: String,
+    type: {Type:String, required: true},
 },
 {
     timestamps: true
