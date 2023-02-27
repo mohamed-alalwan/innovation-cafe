@@ -9,10 +9,6 @@ const express = require('express');
 const port = 4000;
 const app = express();
 const path = require('path');
-const cookieParser = require('cookie-parser');
-
-//initializing cookie-parser
-app.use(cookieParser());
 
 //initializing body-parser
 app.use(express.json());
