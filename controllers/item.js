@@ -1,16 +1,20 @@
 // Model
 const Item = require ('../models/Item')
+const firebase = require('firebase/auth');
+const auth = firebase.getAuth();
 
 // HTTP index get items
 exports.item_index_get = (req, res) => {
-    res.render('item/index')
+    res.render('item/index', {
+        user: auth.currentUser
+    })
 }
 
 // HTTP create Items get 
 exports.item_create_get = (req, res) => {
     Item.find()
     .then((items) => {
-        res.render('item/add', {items})
+        res.render('item/add', {items, user: auth.currentUser})
     })
 }
 
