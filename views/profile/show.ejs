@@ -1,0 +1,27 @@
+<%- include('./partial/header.ejs') %>
+<div class="profile-main-container">
+    <div>
+        <h2>Personal</h2>
+        <img src="<%= user.avatarURL ? user.avatarURL : 'images/profile/guest.jpeg' %>" alt="">
+        <h3><%= user.firstName + " " + user.lastName %></h3>
+        <h3>PhoneNumber : <%= user.phoneNumber %></h3>
+        <a href="/profile/edit_personal">Edit</a>
+    </div>
+    <div>
+        <h2>Address</h2>
+        <h3>
+            Area: <%= user.area %>
+        </h3>
+        <h3>
+            Block: <%= user.block %>
+        </h3>
+        <h3>
+            Street: <%= user.street %>
+        </h3>
+        <h3>
+            House: <%= user.house %>
+        </h3>
+        <a href="/profile/edit_personal">Edit</a>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<%- include('./partial/header.ejs') %>
+    <div class="SignUpPage">
+        <form class="form" method="POST" action="/profile/edit_address" enctype="multipart/form-data">
+            <h1 class="textCenter">Edit Address</h1>
+            <div class="inputGroup">
+                <label class="signUpLabel">Area</label>
+                <input class="SignUpInput" name="area" type="text" value="<%= user.area %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">Block</label>
+                <input class="SignUpInput" name="block" type="text" value="<%= user.block %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">Street</label>
+                <input class="SignUpInput" name="street" type="text" value="<%= user.street %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">House</label>
+                <input class="SignUpInput" name="house" type="text" value="<%= user.house %>" />
+            </div>
+
+            <input type="hidden" name="id" value="<%= user.id %>">
+
+            <button class="btn addCart" type="submit">Save Changes</button>
+        </form>
+    </div>

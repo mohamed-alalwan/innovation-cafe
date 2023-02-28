@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
     house: String,
     phoneNumber: String,
     type: {type:String, required: true},
-    firebaseID: {type:String, required: true}
+    firebaseID: {type:String, required: true},
+    avatarURL: String,
 },
 {
     timestamps: true
