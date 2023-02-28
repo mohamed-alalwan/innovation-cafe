@@ -40,15 +40,15 @@ exports.item_create_get = (req, res) => {
 exports.item_create_post =  async (req, res) => {
   let item = new Item(req.body);
 
-  //handle upload image
-  // const datetime = Date.now();
-  // const ref = storage.ref(storage, `items/${req.file.imageURL}-${datetime}`);
-  // const metadata = { contentType: req.file.mimetype };
-  // const snapshot = await uploadBytesResumable(ref, req.file.buffer, metadata);
-  // const downloadURL = await getDownloadURL(snapshot.ref);
-  // console.log("file successfully uploaded");
+  // handle upload image
+  const datetime = Date.now();
+  const ref = storage.ref(storage, `items/${req.file.imageURL}-${datetime}`);
+  const metadata = { contentType: req.file.mimetype };
+  const snapshot = await uploadBytesResumable(ref, req.file.buffer, metadata);
+  const downloadURL = await getDownloadURL(snapshot.ref);
+  console.log("file successfully uploaded");
 
-  // item.imageURL = downloadURL;
+  item.imageURL = downloadURL;
 
   item
     .save()
