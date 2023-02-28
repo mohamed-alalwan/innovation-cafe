@@ -6,5 +6,6 @@ const itemCntrl = require('../controllers/item')
 router.get('/index', itemCntrl.item_index_get)
 router.get('/add', itemCntrl.item_create_get)
 router.post('/add', itemCntrl.item_create_post)
+router.get('/show', itemCntrl.item_show_get)
 
 module.exports = router

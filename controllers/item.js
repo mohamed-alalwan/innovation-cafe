@@ -27,7 +27,7 @@ exports.item_create_post = (req, res) => {
   item
     .save()
     .then(() => {
-      res.redirect("/item/index");
+      res.redirect("item/index");
     })
     .catch((err) => {
         console.log(err);
@@ -37,9 +37,9 @@ exports.item_create_post = (req, res) => {
 
 // HTTP Get item details by ID
 exports.item_show_get = (req, res) => {
-    Item.findById(req.body.id)
+    Item.findById(req.query.id)
     .then(item => {
-        res.render('/item/show', {item, auth: auth.currentUser}) 
+        res.render('item/show', {item, auth: auth.currentUser}) 
     })
     .catch(err => {
         console.log(err);
