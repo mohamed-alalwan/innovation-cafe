@@ -1,0 +1,29 @@
+<%- include('./partial/header.ejs') %>
+    <div class="SignUpPage">
+        <form class="form" method="POST" action="/profile/edit_personal" enctype="multipart/form-data">
+            <h1 class="textCenter">Edit Personal Details</h1>
+            <div class="inputGroup">
+                <label class="signUpLabel">Profile Image</label>
+                <input class="SignUpInput" name="avatarURL" type="file" value="<%= user.imageURL %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">First Name</label>
+                <input class="SignUpInput" name="firstName" type="text" value="<%= user.firstName %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">Last Name</label>
+                <input class="SignUpInput" name="lastName" type="text" value="<%= user.lastName %>" />
+            </div>
+
+            <div class="inputGroup">
+                <label class="signUpLabel">Phone Number</label>
+                <input class="SignUpInput" name="phoneNumber" type="text" value="<%= user.phoneNumber %>" />
+            </div>
+
+            <input type="hidden" name="id" value="<%= user.id %>">
+
+            <button class="btn addCart" type="submit">Save Changes</button>
+        </form>
+    </div>

@@ -78,4 +78,25 @@ exports.auth_signout_get = (req, res) => {
     });
 }
 
+// HTTP Password Reset Get
+exports.auth_forgot_password_get = async (req, res) => {
+    const user = await this.returnCurrentUser();
+    res.render('auth/forgot_password', {
+        auth: auth.currentUser,
+        user
+    });
+}
+
+// HTTP Password Reset Post
+exports.auth_forgot_password_post = async (req, res) => {
+    firebase.sendPasswordResetEmail(auth,req.body.email)
+    .then(() => {
+        res.redirect('/auth/signin');
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/auth/signin');
+    });
+}
+
 

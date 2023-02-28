@@ -100,24 +100,30 @@ exports.item_edit_get = (req, res) => {
 
 // HTTP Edit - Post
 exports.item_edit_post = (req, res) => {
-    const {id, title, des, category, price} = req.body
-    const imageURL = req.file.path.replace("public", "");
-    Item.findById(id)
-    .then(async (item) => {
-        fs.unlink('public'+item.imageURL, (err) => {
-            if (err) {
-                console.log(err);
-            }else{
-                Item.findByIdAndUpdate(id, {imageURL, title, des, category, price}, {new:true})
-                .then(updatedItem => {
-                    res.redirect('/item/index');
-                });
-            }
-        }); 
-    })
-    .catch(err => {
+    try{
+        const {id, title, des, category, price} = req.body
+        const imageURL = req.file.path.replace("public", "");
+        Item.findById(id)
+        .then(async (item) => {
+            fs.unlink('public'+item.imageURL, (err) => {
+                if (err) {
+                    console.log(err);
+                }else{
+                    Item.findByIdAndUpdate(id, {imageURL, title, des, category, price}, {new:true})
+                    .then(updatedItem => {
+                        res.redirect('/item/index');
+                    });
+                }
+            }); 
+        })
+        .catch(err => {
+            console.log(err);
+            res.redirect('/item/index');
+        });
+    }catch(err){
         console.log(err);
-    });
+        res.redirect('/item/index');
+    }
 }
 
 
