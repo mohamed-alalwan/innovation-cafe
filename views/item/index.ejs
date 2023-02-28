@@ -7,10 +7,7 @@
             
           <!-- </div> -->
     <div class="items">
-        <img class="menuImage" src="https://live.staticflickr.com/65535/52716853889_0b5893fc5c.jpg" width="280" height="250" alt="Cappuccino_at_Sightglass_Coffee">
-        <!-- <img src="https://live.staticflickr.com/65535/52716075817_f2c18fa8d2.jpg" width="500" height="357" alt="Esspresso"> -->
-        <!-- <img src="https://live.staticflickr.com/65535/52717165559_c7f35484da.jpg" width="500" height="333" alt="wallpaper-blur"> -->
-        <%= item.imageURL %>
+        <img class="menuImage" src="\<%=item.imageURL%>" width="200" height="150" alt="Cappuccino_at_Sightglass_Coffee">
         <a href="/item/show?id=<%= item._id %>"><%= item.title %></a>
         <%= item.price %> <span>BD</span>
     </div>
