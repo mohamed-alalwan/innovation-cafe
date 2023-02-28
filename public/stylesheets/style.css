@@ -180,7 +180,7 @@ header a{
     border-radius: 15px;
     font-size: 25px;
     color: white;
-    background-color: #31762b;
+    background-color: goldenrod;
     padding: 15px 30%;
     border: none;
     border-bottom-style: solid;
@@ -190,7 +190,7 @@ header a{
 
 .cta:hover {
     cursor: pointer;
-    background-color: rgb(0, 162, 0);
+    background-color: goldenrod;
     transition: all 0.3s ease-in-out;
 }
 
