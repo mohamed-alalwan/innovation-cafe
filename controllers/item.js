@@ -4,9 +4,6 @@ const firebase = require("firebase/auth");
 const auth = firebase.getAuth();
 const authCntrl = require("../controllers/auth");
 
-
-
-
 // HTTP index get items
 exports.item_index_get = (req, res) => {
     Item.find()
