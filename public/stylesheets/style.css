@@ -190,7 +190,7 @@ header a{
 
 .cta:hover {
     cursor: pointer;
-    background-color: goldenrod;
+    background-color: rgb(148, 108, 6);
     transition: all 0.3s ease-in-out;
 }
 
@@ -409,3 +409,15 @@ footer {
 /* End of the CSS coding for the Sign in */
 
 /* End of the CSS Coding */
+
+/* Show Page CSS */
+.showCenter {
+    text-align: center;
+}
+
+.addCart {
+    margin-top: 0.75rem;
+    width: 100%;
+    border: none;
+    height: 45px;
+}

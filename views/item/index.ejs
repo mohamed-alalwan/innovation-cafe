@@ -8,6 +8,6 @@
     <% items.forEach(function(item){ %>
          <%= item.imageURL %>
          <a href="/item/show?id=<%= item._id %>"><%= item.title %></a>
-         <%= item.price %>
+         <%= item.price %> <span>BD</span>
     <% }) %>
 </div>
