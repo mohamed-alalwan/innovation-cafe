@@ -1,1 +1,27 @@
-<h1>this is the detail page</h1>
+<div class="SignUpPage">
+    <div class="form">
+        <h1 class="textCenter"><%= item.title %></h1>
+    
+        <div class="inputGroup showCenter">
+            <%= item.imageURL %>
+        </div>
+        <div class="inputGroup showCenter">
+            <%= item.descreption %>
+        </div >
+        
+        <div class="inputGroup showCenter">
+            <%= item.category %>
+        </div>
+        
+        <div class="inputGroup showCenter">
+            <%= item.price %> <span>BD</span>
+        </div>
+        <div class="btnGroup">
+            <a class="btn" href="/item/edit?id=<%=item._id%>">Edit</a>
+            <a class="btn" href="/item/delete?id=<%=item._id%>">Delete</a>
+        </div>
+        <div>
+            <button class="btn addCart">Add to Cart</button>
+        </div>
+    </div>    
+</div>
