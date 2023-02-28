@@ -31,3 +31,16 @@ exports.item_create_post = (req, res) => {
         res.send('Error please try again later')
     })
 }
+
+// HTTP Get item details by ID
+exports.item_show_get = (req, res) => {
+    Item.findById(req.body.id)
+    .then(item => {
+        res.render('/item/show', {item, auth: auth.currentUser}) 
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+// HTTP Delete item
