@@ -3,18 +3,18 @@
         <h1 class="textCenter"><%= item.title %></h1>
     
         <div class="inputGroup showCenter">
-            <%= item.imageURL %>
+            <span>Image:  </span><%= item.imageURL %>
         </div>
         <div class="inputGroup showCenter">
-            <%= item.descreption %>
+            <span>Description:  </span><%= item.des %>
         </div >
         
         <div class="inputGroup showCenter">
-            <%= item.category %>
+            <span>Category:  </span><%= item.category %>
         </div>
         
         <div class="inputGroup showCenter">
-            <%= item.price %> <span>BD</span>
+            <span>Price:  </span><%= item.price %> <span>BD</span>
         </div>
         <div class="btnGroup">
             <a class="btn" href="/item/edit?id=<%=item._id%>">Edit</a>

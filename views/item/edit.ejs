@@ -1,23 +1,33 @@
-<h1>edit page</h1>
-
-<form method="POST" action="/item/edit" >
-
-    <div>
-        <label>Image</label>
-        <input name="imageURL" type="file" value="<%= item.imageURL %>"/>
-    </div>
-
-    <div>
-        <label>Title</label>
-        <input name="title" type="text" value="<%= item.title %>"/>
-    </div>
-
-    <div>
-        <label>Content</label>
-        <textarea name="content" required><%= article.content %></textarea>
-    </div>
-
-    <input type="hidden" name="id" value="<%= article.id %>">
+<div class="SignUpPage">
+    <form class="form" method="POST" action="/item/edit" >
+        <h1 class="textCenter">Edit Item</h1>
+        <div class="inputGroup">
+            <label class="signUpLabel">Item Image</label>
+            <input class="SignUpInput" name="imageURL" type="file" value="<%= item.imageURL %>"/>
+        </div>
     
-    <button type="submit">Update Article</button>
-</form>
+        <div class="inputGroup">
+            <label class="signUpLabel">Item Name</label>
+            <input class="SignUpInput" name="title" type="text" value="<%= item.title %>"/>
+        </div>
+    
+        <div class="inputGroup">
+            <label class="signUpLabel">Item Description</label>
+            <input class="SignUpInput" name="des" type="text" value="<%= item.des %>"/>
+        </div>
+    
+        <div class="inputGroup">
+            <label class="signUpLabel">Item Category</label>
+            <input class="SignUpInput" name="category" type="text" value="<%= item.category %>"/>
+        </div>
+    
+        <div class="inputGroup">
+            <label class="signUpLabel">Item Price</label>
+            <input class="SignUpInput" name="price" type="text" value="<%= item.price %>"/>
+        </div>
+    
+        <input type="hidden" name="id" value="<%= item.id %>">
+        
+        <button class="btn addCart" type="submit">Update Item</button>
+    </form>
+</div>
