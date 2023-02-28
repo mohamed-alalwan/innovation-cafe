@@ -9,7 +9,6 @@ exports.item_index_get = (req, res) => {
     Item.find()
     .then( async (items) => {
         const user = await authCntrl.returnCurrentUser();
-        console.log(user);
         res.render('item/index', 
             {
             items, 
@@ -32,16 +31,13 @@ exports.item_create_get = (req, res) => {
 };
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
-    res.send('uploaded image!');
     let item = new Item(req.body);
     item.imageURL = req.file.path;
     item
     .save()
     .then(() => {
-
       res.redirect("/item/index");
       console.log();
-
     })
     .catch((err) => {
         console.log(err);

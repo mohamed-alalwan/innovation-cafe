@@ -407,6 +407,32 @@ footer {
     color: #1e1e1e;
 }
 
+/*Items Sub Nav Bar*/
+.sub-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content:space-between; */
+    height: 40px;
+    padding: 20px;
+    background-color: rgb(211, 211, 211);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sub-nav a{
+    text-decoration: none;
+    color: #1E1E1E;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.sub-nav a:hover{
+    color: grey;
+    transition: all 0.3s ease-in-out;
+}
+
 /* Menu page CSS */
 
 .itemContainer {
@@ -442,17 +468,6 @@ footer {
 
 .emptySentence {
     font-size: 5px;
-}
-
-.aAdd {
-    text-decoration: none;
-    font-size: 30px;
-    color: #1E1E1E;
-}
-
-.itemAdd {
-    margin-left: 30px;
-    background-color:rgb(255, 255, 255);
 }
 
 .menuImage{

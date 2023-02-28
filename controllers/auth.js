@@ -7,9 +7,7 @@ exports.returnCurrentUser =  () => {
         try{
             const user = User.findOne({firebaseID: auth.currentUser.uid})
             return user;
-
         } catch(err) {
-            console.log(err);
             return err;
         }
     }
