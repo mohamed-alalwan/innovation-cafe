@@ -2,10 +2,22 @@ const User = require('../models/User')
 const firebase = require('firebase/auth');
 const auth = firebase.getAuth();
 
+exports.returnCurrentUser =  () => {
+    if(auth.currentUser) {
+        try{
+            const user = User.findOne({firebaseID: auth.currentUser.uid})
+            return user;
+
+        } catch(err) {
+            console.log(err);
+            return err;
+        }
+    }
+}
 // HTTP Sign up Get
 exports.auth_signup_get = (req, res) => {
     res.render('auth/signup', {
-        auth: auth.currentUser
+        auth: auth.currentUser,
     });
 }
 
@@ -13,7 +25,6 @@ exports.auth_signup_get = (req, res) => {
 exports.auth_signup_post = async (req, res) => {
     firebase.createUserWithEmailAndPassword(auth,req.body.email, req.body.password).then((userCredentials) => {
         if(auth.currentUser){
-            console.log(req.body);
             const user =  new User({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -27,7 +38,7 @@ exports.auth_signup_post = async (req, res) => {
             });
             user.save().then(() => {
                 console.log("signed up");
-                res.render('home/index');
+                res.redirect('/home/index');
             }).catch(err => {
                 console.log("failed to sign up - error = " + err.message);
                 es.redirect('/auth/signin');
