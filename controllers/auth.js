@@ -16,9 +16,16 @@ exports.returnCurrentUser =  () => {
 }
 // HTTP Sign up Get
 exports.auth_signup_get = (req, res) => {
-    res.render('auth/signup', {
-        auth: auth.currentUser,
-    });
+    const user = this.returnCurrentUser();
+    if(!auth.currentUser) {
+        res.render('auth/signup', {
+            auth: auth.currentUser,
+            user
+        });
+    }
+    else{
+        res.redirect('/home/index');
+    }
 }
 
 // HTTP Sign up Post
@@ -54,10 +61,16 @@ exports.auth_signup_post = async (req, res) => {
 
 // HTTP Sign in Get
 exports.auth_signin_get = (req, res) => {
-    // console.log(auth.currentUser);
-    res.render('auth/signin', {
-        auth: auth.currentUser
-    });
+    if(!auth.currentUser) {
+        const user = this.returnCurrentUser();
+        res.render('auth/signin', {
+            auth: auth.currentUser,
+            user
+        });
+    }else{
+        res.redirect('/home/index');
+    }
+    
 }
 
 // HTTP Sign in Post

@@ -24,12 +24,25 @@
             <div class="ctaHeader">
                 <a href="/home/index">Home</a>
                 <a href="/item/index">Menu</a>
+                <% if (user) { %>
+                    <% if (user.type === 'admin') { %>
+                        <a href="/admin/index">Admin Portal</a>
+                    <% } %>
+                <% } %>
             </div>
-            <div class="ctaAuth">
-                
-                <a class="signin" href="/auth/signin">Sign In</a>
-                <a class="signup" href="/auth/signup">Sign Up</a>
-            </div>
+
+            <% if (!auth) { %>
+                <div class="ctaAuth">
+                    <a class="signin" href="/auth/signin">Sign In</a>
+                    <a class="signup" href="/auth/signup">Sign Up</a>
+                </div>
+            <% } %>
+            
+            <% if (user) { %>
+                <div class="ctaAuth">
+                    <a class="signin" href="/auth/signin"><%= user.firstName %></a>
+                </div>
+            <% } %>
         </nav>
     </header>
 
