@@ -406,6 +406,47 @@ footer {
     text-decoration: none;
     color: #1e1e1e;
 }
+
+/* Menu page CSS */
+
+.itemContainer {
+    background-image: url('../images/wallpaper-blur.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 280px;
+    background-color: rgba(255, 255, 255, 0.589);
+    margin: 10px;
+    color:#1e1e1e;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20%;  
+    /* border-top-right-radius: 30%;
+    border-top-left-radius: 30%; */
+}
+
+.menuImage{
+    border-radius: 20%;
+}
+
+.itemAdd{
+    background-color:rgb(255, 255, 255);
+    
+}
+
+
 /* End of the CSS coding for the Sign in */
 
 /* End of the CSS Coding */
