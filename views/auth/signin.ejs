@@ -1,4 +1,4 @@
-<% if (!user) { %>
+<% if (!auth) { %>
     <div class="SignUpPage">
         <form class="form" method="POST" action="/auth/signin">
             <h1 class="textCenter">Sign In</h1>
@@ -10,11 +10,6 @@
             <div class="inputGroup">
                 <label class="signUpLabel">Password</label>
                 <input name="password" type="password" class="SignUpInput" />
-            </div>
-    
-            <div class="inputGroup">
-                <label class="signUpLabel">Confirm Password</label>
-                <input name="confirm-password" type="password" class="SignUpInput" />
             </div>
             <button type="submit" class="btn signInBtn">Sign In</button>
             <div class="create">
@@ -28,7 +23,7 @@
     </div>
 <% } %>
 
-<% if (user) { %>
+<% if (auth) { %>
     <p>You are already signed-in!</p>
 <% }%>
 

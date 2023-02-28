@@ -1,2 +1,31 @@
-<h1>this is add page</h1>
-<input type="file" />
+<div class="SignUpPage">
+<form class="form" method="POST" action="/item/add">
+
+    <h1 class="textCenter">Adding New Item</h1>
+
+    <div class="inputGroup">
+        <label class="signUpLabel">Item Image</label>
+        <input name="imageURL" type="file" class="SignUpInput"/>
+    </div>
+
+    <div class="inputGroup">
+        <label class="signUpLabel">Dish Name</label>
+        <input name="title" type="text" class="SignUpInput"/>
+    </div>
+
+    <div class="inputGroup">
+        <label class="signUpLabel">Description</label>
+        <input name="Description" type="text" class="SignUpInput"/>
+    </div>
+
+    <div class="inputGroup">
+        <label class="signUpLabel">price</label>
+        <input name="price" type="text" class="SignUpInput"/>
+    </div>
+
+    <button type="submit" class="btn signInBtn">Add New Item</button>
+
+</form>
+
+</div>
+

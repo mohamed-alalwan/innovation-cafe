@@ -1,15 +1,15 @@
 const mongoose = require ('mongoose')
-// const bcrypt = require ('bcrypt')
 
 const userSchema = mongoose.Schema({
-    firstName: {Type:String, required: true},
-    lastName: {Type:String, required: true},
+    firstName: {type:String, required: true},
+    lastName: {type:String, required: true},
     area: String,
     block: String,
     street: String,
     house: String,
     phoneNumber: String,
-    type: {Type:String, required: true},
+    type: {type:String, required: true},
+    firebaseID: {type:String, required: true}
 },
 {
     timestamps: true

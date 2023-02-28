@@ -3,10 +3,10 @@
 const mongoose = require('mongoose')
 
 const itemSchema = mongoose.Schema({
-    imageURL: {type:String, required:true},
-    title: {type:String, required: true},
-    description: {type:String, required: true},
-    price: {type:String, required: true}
+    imageURL: {type:String},
+    title: {type:String},
+    description: {type:String},
+    price: {type:String}
     // quantity: Number
 },
 {
