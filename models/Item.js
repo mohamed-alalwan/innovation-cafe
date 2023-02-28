@@ -6,6 +6,7 @@ const itemSchema = mongoose.Schema({
     imageURL: {type:String},
     title: {type:String},
     description: {type:String},
+    category: {type: String},
     price: {type:String}
     // quantity: Number
 },
