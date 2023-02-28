@@ -53,7 +53,7 @@ exports.item_create_post =  async (req, res) => {
   item
     .save()
     .then(() => {
-      res.redirect("item/index");
+      res.redirect("/item/index");
     })
     .catch((err) => {
         console.log(err);
@@ -74,4 +74,31 @@ exports.item_show_get = (req, res) => {
 }
 
 // HTTP Delete item
+exports.item_delete_get = (req, res) => {
+    Item.findByIdAndDelete(req.query.id)
+    .then(() => {
+        res.redirect('/item/index')
+    })
+    .catch(err => {
+        console.log();
+    })
+}
+
+// HTTP Edit - Get
+exports.item_edit_get = (req, res) => {
+    const id = req.query.id
+    Item.findById(id)
+    .then(async(item) => {
+        const user = await authCntrl.returnCurrentUser();
+        res.render('item/edit', {
+            item,
+            auth: auth.currentUser,
+            user
+        })
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
 
