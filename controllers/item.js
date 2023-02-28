@@ -54,6 +54,7 @@ exports.item_create_post =  async (req, res) => {
     .save()
     .then(() => {
       res.redirect("/item/index");
+      console.log();
     })
     .catch((err) => {
         console.log(err);
@@ -66,7 +67,9 @@ exports.item_show_get = (req, res) => {
     Item.findById(req.query.id)
     .then(async (item) => {
         const user = await authCntrl.returnCurrentUser();
+        console.log(item);
         res.render('item/show', {item, auth: auth.currentUser, user}) 
+        
     })
     .catch(err => {
         console.log(err);
@@ -98,6 +101,15 @@ exports.item_edit_get = (req, res) => {
     })
     .catch((err) => {
         console.log(err);
+    })
+}
+
+// HTTP Edit - Post
+exports.item_edit_post = (req, res) => {
+    const {id, title, des, category, price} = req.body
+    Item.findByIdAndUpdate(id, {title, des, category, price}, {new:true})
+    .then(updatedItem => {
+        res.redirect('/item/index')
     })
 }
 
