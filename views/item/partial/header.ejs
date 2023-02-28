@@ -1,4 +1,18 @@
 <div class="sub-nav">
-    <a href="/item/index">All Items</a>
-    <a href="/item/add">Add Item</a>
+    <div>
+        <a href="/item/index">Menu</a>
+        <a href="/item/add">Add Item</a>
+    </div>
+    <div>
+        <form action="/item/index">
+            <input name="search" type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <a href="/cart/index">
+        <div class="cart-container">
+            <img src="https://cdn-icons-png.flaticon.com/512/2838/2838838.png" alt="cart">
+            <h6>0</h6>
+        </div>
+    </a>
 </div>
