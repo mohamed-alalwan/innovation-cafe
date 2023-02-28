@@ -406,6 +406,38 @@ footer {
     text-decoration: none;
     color: #1e1e1e;
 }
+
+/* Menu page CSS */
+
+.itemContainer {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../images/wallpaper-blur.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuContainer {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.textContainer h1 {
+    color: #edefed;
+    font-weight: bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0.105em;
+    margin: 0;
+}
+
 /* End of the CSS coding for the Sign in */
 
 /* End of the CSS Coding */
