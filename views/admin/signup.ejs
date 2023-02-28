@@ -1,0 +1,93 @@
+<% if (auth) { %>
+    <p>You are already signed-in!</p>
+    <% }%>
+
+<% if (!auth) { %>
+    <div class="SignUpPage">
+        <form class="form" method="POST">
+            <h1 class="textCenter">Admin Sign Up Page</h1>
+            <p class="textCenter">Please fill all the required field -*- </p>
+            <!-- Progress bar -->
+            <div class="progressBar">
+                <div class="progress" id="progress"></div>
+                <div class="progressStep progressStepActive" data-title="Account"></div>
+                <div class="progressStep" data-title="Personal"></div>
+                <div class="progressStep" data-title="Address"></div>
+            </div>
+
+            <!-- Steps -->
+
+            <div id="account" class="formStep formActiveStep">
+
+                <div class="inputGroup">
+                    <label class="signUpLabel">Email Address *</label>
+                    <input name="email" type="email" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Password *</label>
+                    <input name="password" type="password" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Confirm Password *</label>
+                    <input name="confirmPassword" type="password" class="SignUpInput" />
+                </div>
+                <div>
+                    <!-- <a href="#" class="btn btnNext width50 rightBtn">Next</a> -->
+                    <button type="button" class="btn btnNext width50 rightBtn">Next</button>
+                </div>
+            </div>
+
+            <div id="personal" class="formStep">
+
+                <div class="inputGroup">
+                    <label class="signUpLabel">First Name *</label>
+                    <input name="firstName" type="text" id="fName" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Last Name *</label>
+                    <input name="lastName" type="text" id="lName" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Phone Number *</label>
+                    <input name="phoneNumber" type="text" id="phoneNumber" class="SignUpInput" />
+                </div>
+                <div class="btnGroup">
+                    <!-- <a href="#" class="btn btnPrevious">Previous</a> -->
+                    <button type="button" class="btn btnPrevious">Previous</button>
+                    <!-- <a href="#" class="btn btnNext">Next</a> -->
+                    <button type="button" class="btn btnNext">Next</button>
+                </div>
+            </div>
+
+            <div id="address" class="formStep">
+
+                <div class="inputGroup">
+                    <label class="signUpLabel">Area</label>
+                    <input name="area" type="text" id="area" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Block</label>
+                    <input name="block" type="text" id="block" class="SignUpInput" />
+                </div>
+                <div class="inputGroup">
+                    <label class="signUpLabel">Street Number</label>
+                    <input name="street" type="text" id="street" class="SignUpInput" />
+                </div>
+
+                <div class="inputGroup">
+                    <label class="signUpLabel">House Number</label>
+                    <input name="house" type="text" id="house" class="SignUpInput" />
+                </div>
+
+                <div class="btnGroup">
+                    <!-- <a href="#" class="btn btnPrevious">Previous</a> -->
+                    <button type="button" class="btn btnPrevious">Previous</button>
+                    <!-- <a href="#" class="btn btnNext btnSubmit">Submit</a> -->
+                    <button type="submit" class="btn btnNext btnSubmit">Submit</button>
+                </div>
+            </div>
+            <br>
+            <a class="haveAcct" href="/auth/signin">Already have an account?</a>
+        </form>
+    </div>
+<% }%>

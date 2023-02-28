@@ -15,4 +15,8 @@ router.post('/signin', authCntrl.auth_signin_post);
 //sign out
 router.get('/signout', authCntrl.auth_signout_get);
 
+//password reset
+router.get('/forgot_password', authCntrl.auth_forgot_password_get);
+router.post('/forgot_password', authCntrl.auth_forgot_password_post);
+
 module.exports = router;
