@@ -30,29 +30,39 @@ exports.item_index_get = (req, res) => {
 }
 
 // HTTP create Items get
-exports.item_create_get = (req, res) => {
-  Item.find().then(async (items) => {
-    const user = await authCntrl.returnCurrentUser();
-    res.render("item/add", { items, auth: auth.currentUser, user});
-  });
+exports.item_create_get = async (req, res) => {
+    if(auth.currentUser){
+        Item.find().then(async (items) => {
+        const user = await authCntrl.returnCurrentUser();
+        res.render("item/add", { items, auth: auth.currentUser, user});
+    });
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
+    }
+    
 };
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
-    // res.send('uploaded image!');
+    if(auth.currentUser){
+        let item = new Item(req.body);
+        const imageURL = req.file.path.replace("public", "");
+        item.imageURL = imageURL;
+        item
+        .save()
+        .then(() => {
+        res.redirect("/item/index");
+        console.log();
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send('Error please try again later')
+        })
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
+    }
     
-    let item = new Item(req.body);
-    const imageURL = req.file.path.replace("public", "");
-    item.imageURL = imageURL;
-    item
-    .save()
-    .then(() => {
-      res.redirect("/item/index");
-      console.log();
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send('Error please try again later')
-    })
 }
 
 // HTTP Get item details by ID
@@ -69,62 +79,78 @@ exports.item_show_get = (req, res) => {
 
 // HTTP Delete item
 exports.item_delete_get = (req, res) => {
-    Item.findByIdAndDelete(req.query.id)
-    .then((item) => {
-        fs.unlink('public'+item.imageURL, (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
-        res.redirect('/item/index')
-    })
-    .catch(err => {
-        console.log();
-    })
+    if(auth.currentUser){
+        Item.findByIdAndDelete(req.query.id)
+        .then((item) => {
+            fs.unlink('public'+item.imageURL, (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            res.redirect('/item/index')
+        })
+        .catch(err => {
+            console.log();
+        })
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
+    }
 }
 
 // HTTP Edit - Get
 exports.item_edit_get = (req, res) => {
-    const id = req.query.id
-    Item.findById(id)
-    .then(async(item) => {
-        const user = await authCntrl.returnCurrentUser();
-        res.render('item/edit', {
-            item,
-            auth: auth.currentUser,
-            user
+    if(auth.currentUser){
+        const id = req.query.id
+        Item.findById(id)
+        .then(async(item) => {
+            const user = await authCntrl.returnCurrentUser();
+            res.render('item/edit', {
+                item,
+                auth: auth.currentUser,
+                user
+            })
         })
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+        .catch((err) => {
+            console.log(err);
+        })
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
+    }
+   
 }
 
 // HTTP Edit - Post
 exports.item_edit_post = (req, res) => {
-    try{
-        const {id, title, des, category, price} = req.body
-        const imageURL = req.file.path.replace("public", "");
-        Item.findById(id)
-        .then(async (item) => {
-            fs.unlink('public'+item.imageURL, (err) => {
-                if (err) {
-                    console.log(err);
-                }else{
-                    Item.findByIdAndUpdate(id, {imageURL, title, des, category, price}, {new:true})
-                    .then(updatedItem => {
-                        res.redirect('/item/index');
-                    });
-                }
-            }); 
-        })
-        .catch(err => {
+    if(auth.currentUser){
+        try{
+            const {id, title, des, category, price} = req.body
+            const imageURL = req.file.path.replace("public", "");
+            Item.findById(id)
+            .then(async (item) => {
+                fs.unlink('public'+item.imageURL, (err) => {
+                    if (err) {
+                        console.log(err);
+                    }else{
+                        Item.findByIdAndUpdate(id, {imageURL, title, des, category, price}, {new:true})
+                        .then(updatedItem => {
+                            res.redirect('/item/index');
+                        });
+                    }
+                }); 
+            })
+            .catch(err => {
+                console.log(err);
+                res.redirect('/item/index');
+            });
+        }catch(err){
             console.log(err);
             res.redirect('/item/index');
-        });
-    }catch(err){
-        console.log(err);
-        res.redirect('/item/index');
+        }
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
     }
 }
 
