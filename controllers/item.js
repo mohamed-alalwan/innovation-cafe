@@ -38,7 +38,8 @@ exports.item_create_get = (req, res) => {
 };
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
-    res.send('uploaded image!');
+    // res.send('uploaded image!');
+    
     let item = new Item(req.body);
     const imageURL = req.file.path.replace("public", "");
     item.imageURL = imageURL;
