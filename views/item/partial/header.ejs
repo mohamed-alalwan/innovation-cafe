@@ -1,7 +1,11 @@
 <div class="sub-nav">
     <div>
         <a href="/item/index">Menu</a>
-        <a href="/item/add">Add Item</a>
+        <% if (user) { %>
+            <% if (user.type === 'admin') { %>
+                <a href="/item/add">Add Item</a>
+            <% } %>
+        <% } %>
     </div>
     <div>
         <form action="/item/index">
