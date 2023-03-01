@@ -1,9 +1,9 @@
 <%- include('./partial/header.ejs') %>
-    <div>
-            <button name="filter" value="All" class="menuBtn activeBtn" id="all">All</button>
-            <button name="filter" value="Foods" class="menuBtn" id="foods">Foods</button>
-            <button name="filter" value="Drinks" class="menuBtn" id="drinkns">Drinks</button>
-            <button name="filter" value="Deserts" class="menuBtn" id="deserts">Deserts</button>
+    <div class="filterGroup">
+            <a class="filterBtn" href="/item/index">All</a>
+            <a class="filterBtn" href="/item/index?filter=Foods">Foods</a>
+            <a class="filterBtn" href="/item/index?filter=Drinks">Drinks</a>
+            <a class="filterBtn" href="/item/index?filter=Deserts">Deserts</a>
     </div>
     <div class="itemContainer">
         <% items.forEach(function(item){ %>

@@ -634,3 +634,44 @@ footer {
 .select {
     width: 389px;
 }
+
+/* Filter Styling */
+
+.filterGroup {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    justify-content: center;
+}
+
+.filterBtn {
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    width: 40px;
+    margin-right: 5px;
+    color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    background-color: #1e1e1e;
+    color: white;
+    cursor: pointer;
+}
+
+.filterBtn:hover {
+    background-color: white;
+    color: #1e1e1e;
+    box-shadow: 0 0 0 3px #1e1e1e;
+    border-radius: 50px;
+}
