@@ -5,7 +5,7 @@ const auth = firebase.getAuth();
 exports.returnCurrentUser =  () => {
     if(auth.currentUser) {
         try{
-            const user = User.findOne({firebaseID: auth.currentUser.uid})
+            const user = User.findOne({firebaseID: auth.currentUser.uid}).populate('cart')
             return user;
         } catch(err) {
             return err;

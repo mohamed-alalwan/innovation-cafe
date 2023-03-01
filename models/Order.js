@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const cartSchema = mongoose.Schema({
-    totalPrice: {type:String},
+const orderSchema = mongoose.Schema({
+    totalPrice: {type:Number},
     area: String,
     block: String,
     street: String,
@@ -17,7 +17,7 @@ const cartSchema = mongoose.Schema({
 })
 
 //Model.
-const Cart = mongoose.model("Cart", cartSchema);
+const Order = mongoose.model("Order", orderSchema);
 
 //Export.
-module.exports = Cart;
+module.exports = Order;
