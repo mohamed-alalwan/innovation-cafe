@@ -1,0 +1,32 @@
+<h1>Cart</h1>
+
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Des</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Delete</th>
+    </tr>
+
+    <% cart.items.forEach(function(item){ %>
+        <tr>
+            <!-- <td> -->
+                <!--
+                <a href="/item/detail?id=<%=//item._id %>"> 
+                 <%= //item.title %> </a> </td>
+                -->
+            <td><%= cart.item.imageUrl%></td>
+            <td><%= cart.item.title%></td>
+            <td><%= cart.item.des%></td>
+            <!-- <td><%= //article.author[0].name%></td> -->
+            <td><%= cart.item.category%></td>
+            <td><%= cart.item.price%></td>
+
+            <td><a href="/cart/edit?id=<%=cart.item._id%>">Edit Item</a></td>
+            <td><a href="/cart/delete?id=<%=cart.item._id%>">Remove Item</a></td>
+        </tr>
+    <%})%>
+
+</table>
