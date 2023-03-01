@@ -31,7 +31,8 @@ exports.item_index_get = (req, res) => {
 
 // HTTP create Items get
 exports.item_create_get = (req, res) => {
-  Item.find().then(async (items) => {
+  Item.find().populate('category')
+  .then(async (items) => {
     const user = await authCntrl.returnCurrentUser();
     res.render("item/add", { items, auth: auth.currentUser, user});
   });
@@ -104,6 +105,7 @@ exports.item_edit_get = (req, res) => {
 exports.item_edit_post = (req, res) => {
     try{
         const {id, title, des, category, price} = req.body
+        console.log(req.body);
         const imageURL = req.file.path.replace("public", "");
         Item.findById(id)
         .then(async (item) => {
