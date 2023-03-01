@@ -629,3 +629,8 @@ footer {
 .profile-main-container > div > a:hover {
     text-decoration: underline;
 }
+
+/* Item Category selection */
+.select {
+    width: 320px;
+}

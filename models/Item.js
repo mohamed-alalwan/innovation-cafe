@@ -6,9 +6,9 @@ const itemSchema = mongoose.Schema({
     imageURL: {type:String},
     title: {type:String},
     des: {type:String},
-    category: {type: String},
-    price: {type:String}
-    // quantity: Number
+    category: {type:String},
+    price: {type:String},
+    quantity: Number
 },
 {
     timestamps: true

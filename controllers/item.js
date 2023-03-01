@@ -40,8 +40,8 @@ exports.item_create_get = async (req, res) => {
         res.redirect("/item/index");
         console.log('not authorized');
     }
-    
 };
+
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
     if(auth.currentUser){
