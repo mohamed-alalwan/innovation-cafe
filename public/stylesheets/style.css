@@ -700,3 +700,28 @@ th {
     padding: 20px;
     border: 1px solid rgb(236, 236, 236);
 }
+
+/* Cart Container */
+.total-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cartButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.cartButtonsContainer button{
+    margin: 5px;
+}
+
+.notFound{
+    text-align: center;
+}
