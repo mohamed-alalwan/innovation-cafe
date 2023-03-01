@@ -528,7 +528,6 @@ footer {
     flex-direction: row;
     /* justify-content: space-between; */
     flex-wrap: wrap;
-    padding: 10px;
 }
 
 .itemContainer > a {
@@ -545,7 +544,7 @@ footer {
     color:#1e1e1e;
     font-size: 20px;
     text-align: center;
-    border-radius: 20%;
+    border-radius: 30px;
     line-height: 30px;
     justify-content: center;
     padding: 10px;
@@ -561,7 +560,7 @@ footer {
 }
 
 .menuImage{
-    border-radius: 20%;
+    border-radius: 30px;
     object-fit: cover;
     width: 300px;
     height: 220px;
@@ -674,4 +673,22 @@ footer {
     color: #1e1e1e;
     box-shadow: 0 0 0 3px #1e1e1e;
     border-radius: 50px;
+
+    width: 320px;
+}
+
+/* Table */
+
+table {
+    border-spacing: 0px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr,
+td,
+th {
+    padding: 20px;
+    border: 1px solid rgb(236, 236, 236);
 }

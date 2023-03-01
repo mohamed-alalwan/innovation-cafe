@@ -62,21 +62,25 @@ exports.item_create_get = async (req, res) => {
 
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
-    // res.send('uploaded image!');
-    
-    let item = new Item(req.body);
-    const imageURL = req.file.path.replace("public", "");
-    item.imageURL = imageURL;
-    item
-    .save()
-    .then(() => {
-      res.redirect("/item/index");
-      console.log();
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send('Error please try again later')
-    })
+  if(auth.currentUser){
+        let item = new Item(req.body);
+        item.quantity = 1;
+        const imageURL = req.file.path.replace("public", "");
+        item.imageURL = imageURL;
+        item
+        .save()
+        .then(() => {
+        res.redirect("/item/index");
+        console.log();
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send('Error please try again later')
+        })
+    }else{
+        res.redirect("/item/index");
+        console.log('not authorized');
+    }
 }
 
 // HTTP Get item details by ID
