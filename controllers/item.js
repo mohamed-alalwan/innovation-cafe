@@ -103,26 +103,20 @@ exports.item_edit_get = (req, res) => {
 // HTTP Edit - Post
 exports.item_edit_post = (req, res) => {
     try{
-        const {id, title, des, category, price} = req.body;
-        const file = req.file;
-        let imageURL;
-        if(file){
-            imageURL = req.file.path.replace("public", "");
+        const {id, title, des, category, price} = req.body
+        const imageURL = req.file.path.replace("public", "");
+        Item.findById(id)
+        .then(async (item) => {
             fs.unlink('public'+item.imageURL, (err) => {
                 if (err) {
                     console.log(err);
+                }else{
+                    Item.findByIdAndUpdate(id, {imageURL, title, des, category, price}, {new:true})
+                    .then(updatedItem => {
+                        res.redirect('/item/index');
+                    });
                 }
             }); 
-        }
-        Item.findById(id)
-        .then(async (item) => {
-             Item.findByIdAndUpdate(
-                id,
-                imageURL? {imageURL, title, des, category, price} : {title, des, category, price},
-                {new:true})
-            .then(updatedItem => {
-                res.redirect('/item/index');
-            });
         })
         .catch(err => {
             console.log(err);
