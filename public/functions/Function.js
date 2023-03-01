@@ -1,5 +1,6 @@
 window.onload = () => {
 
+// Multi Steps SignUp
     const prevBtn = document.querySelectorAll('.btnPrevious')
     const nextBtn = document.querySelectorAll('.btnNext')
     const progress = document.querySelector('#progress')
@@ -60,5 +61,10 @@ window.onload = () => {
     progress.style.width = ((progressActive.length - 1) / (proSteps.length - 1)) * 100 + "%"
     console.log(proSteps);
     }
+    
+    // Menu Filter Button
+
+    const menuBtns = document.querySelectorAll('.menuBtn')
+    const items = document.querySelectorAll('.items')
     
 }

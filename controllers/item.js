@@ -17,6 +17,24 @@ exports.item_index_get = (req, res) => {
       .catch(err => {
             console.log(err)
         })
+    }else if(req.query.filter){
+        Item.find({category: req.query.filter})
+        .then(async (items) => {
+              const user = await authCntrl.returnCurrentUser();
+              res.render('item/index', {items, auth: auth.currentUser, user})
+          })
+        .catch(err => {
+              console.log(err)
+          })
+    }else if(req.query.filter){
+        Item.find({category: req.query.filter})
+        .then(async (items) => {
+              const user = await authCntrl.returnCurrentUser();
+              res.render('item/index', {items, auth: auth.currentUser, user})
+          })
+        .catch(err => {
+              console.log(err)
+          })
     } else {
         Item.find()
       .then(async (items) => {
@@ -44,7 +62,7 @@ exports.item_create_get = async (req, res) => {
 
 // HTTP Post Items Post
 exports.item_create_post = async (req, res) => {
-    if(auth.currentUser){
+  if(auth.currentUser){
         let item = new Item(req.body);
         item.quantity = 1;
         const imageURL = req.file.path.replace("public", "");
@@ -63,7 +81,6 @@ exports.item_create_post = async (req, res) => {
         res.redirect("/item/index");
         console.log('not authorized');
     }
-    
 }
 
 // HTTP Get item details by ID
