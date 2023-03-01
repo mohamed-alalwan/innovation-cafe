@@ -555,6 +555,9 @@ footer {
 
 .menuImage{
     border-radius: 20%;
+    object-fit: cover;
+    width: 300px;
+    height: 220px;
 }
 
 
