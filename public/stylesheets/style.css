@@ -681,7 +681,7 @@ footer {
     color: #1e1e1e;
     box-shadow: 0 0 0 3px #1e1e1e;
     border-radius: 50px;
-    width: 320px;
+    width: 60px;
 }
 
 /* Table */
@@ -724,4 +724,29 @@ th {
 
 .notFound{
     text-align: center;
+}
+
+/* Cart */
+.totalPrice {
+    display: block;
+    width: 92%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.shoppinBtn {
+    border: none;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.shoppinBtn:hover {
+    color: #1E1E1E;
+}
+
+.chkBtn {
+    height: 46px;
 }
