@@ -519,7 +519,6 @@ footer {
 /* Menu page CSS */
 
 .itemContainer {
-    background-image: url('../images/wallpaper-blur.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -529,6 +528,11 @@ footer {
     flex-direction: row;
     /* justify-content: space-between; */
     flex-wrap: wrap;
+    padding: 10px;
+}
+
+.itemContainer > a {
+    text-decoration: none;
 }
 
 .items {
@@ -536,17 +540,20 @@ footer {
     flex-direction: column;
     width: 300px;
     height: 310px;
-    background-color: rgba(255, 255, 255, 0.589);
+    background-color: #edefed;
     margin: 10px;
     color:#1e1e1e;
     font-size: 20px;
     text-align: center;
     border-radius: 20%;
-    /* margin-top: 10px; */
-    /* margin-bottom: 10px; */
     line-height: 30px;
-    /* border-top-right-radius: 30%;
-    border-top-left-radius: 30%; */
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.items > p {
+    font-weight: 600;
 }
 
 .emptySentence {
@@ -592,7 +599,7 @@ footer {
     align-items: center;
     padding: 20px;
     width: 80%;
-    margin-top: 30px;
+    margin: 20px 0;
     background-color: #edefed;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

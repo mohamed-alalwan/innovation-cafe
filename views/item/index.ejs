@@ -1,10 +1,16 @@
 <%- include('./partial/header.ejs') %>
 <div class="itemContainer">
     <% items.forEach(function(item){ %>
-    <div class="items">
-        <img class="menuImage" src="<%= item.imageURL %>">
-        <a href="/item/show?id=<%= item._id %>"><%= item.title %></a>
-        <span> <%= item.price %>  BD</span>
-    </div>
+        <a href="/item/show?id=<%= item._id %>">
+            <div class="items">
+                <img class="menuImage" src="<%= item.imageURL %>">
+                <p>
+                    <%= item.title %>
+                </p>
+                <span>
+                    <%= item.price %> BD
+                </span>
+            </div>
+        </a>
     <% }) %>
 </div>
