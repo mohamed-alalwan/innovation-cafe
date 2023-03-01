@@ -210,7 +210,7 @@ header a{
     border-radius: 15px;
     font-size: 25px;
     color: white;
-    background-color: goldenrod;
+    background-color: rgb(207, 145, 37);
     padding: 15px 30%;
     border: none;
     border-bottom-style: solid;
@@ -220,7 +220,7 @@ header a{
 
 .cta:hover {
     cursor: pointer;
-    background-color: rgb(148, 108, 6);
+    background-color: rgb(118, 82, 20);
     transition: all 0.3s ease-in-out;
 }
 
@@ -519,6 +519,7 @@ footer {
 /* Menu page CSS */
 
 .itemContainer {
+    background-color: #8d8d8d;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -528,6 +529,8 @@ footer {
     flex-direction: row;
     /* justify-content: space-between; */
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .itemContainer > a {
@@ -540,7 +543,7 @@ footer {
     width: 300px;
     height: 310px;
     background-color: #edefed;
-    margin: 10px;
+    margin: 20px;
     color:#1e1e1e;
     font-size: 20px;
     text-align: center;
