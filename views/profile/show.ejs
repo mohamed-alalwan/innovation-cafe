@@ -2,7 +2,7 @@
 <div class="profile-main-container">
     <div>
         <h2>Personal</h2>
-        <img src="<%= user.avatarURL ? user.avatarURL : 'images/profile/guest.jpeg' %>" alt="">
+        <img src="<%= user.avatarURL ? user.avatarURL : '/images/profile/guest.jpeg' %>" alt="">
         <h3><%= user.firstName + " " + user.lastName %></h3>
         <h3>PhoneNumber : <%= user.phoneNumber %></h3>
         <a href="/profile/edit_personal">Edit</a>
