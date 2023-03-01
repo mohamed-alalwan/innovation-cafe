@@ -6,9 +6,11 @@
         <th>Description</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th></th>
     </tr>
-
+    <% let total = 0 %>
     <% user.cart.forEach(cartItem => { %>
+        <% total += parseFloat(cartItem.price)%>
      <tr>
         <td>
             <img src="<%= cartItem.imageURL%>" height="100" width="100" style="object-fit: cover; border-radius: 10px;"/>
@@ -19,6 +21,22 @@
         <td>
             <%= cartItem.quantity %>
         </td>
+        <td>
+            <a href="/cart/delete?id=<%= cartItem.id %>">Remove</a>
+        </td>
      </tr>
     <% }) %>
 </table>
+
+<div class="total-price">
+    <h2>Total Price:</h2>
+    <p><%= total.toFixed(2) + ' BD' %></p>
+</div>
+
+<div>
+    <button>Checkout</button>
+    <a href="/item/index">
+        <button>Continue Shopping</button>
+    </a>
+    
+</div>
