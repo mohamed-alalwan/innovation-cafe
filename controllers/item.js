@@ -46,6 +46,7 @@ exports.item_create_get = async (req, res) => {
 exports.item_create_post = async (req, res) => {
     if(auth.currentUser){
         let item = new Item(req.body);
+        item.quantity = 1;
         const imageURL = req.file.path.replace("public", "");
         item.imageURL = imageURL;
         item
