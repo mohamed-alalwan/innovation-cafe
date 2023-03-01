@@ -5,7 +5,7 @@ const router = express.Router();
 const cartCtrl = require("../controllers/cart");
 
 //Call API.
-// router.get("/cart/add", cartCtrl.cart_create_get);
+router.get("/add", cartCtrl.cart_create_get);
 // router.post("/cart/add", cartCtrl.cart_create_post);
 // router.get("/cart/index", cartCtrl.cart_index_get);
 // router.get("/cart/detail", cartCtrl.cart_show_get);
