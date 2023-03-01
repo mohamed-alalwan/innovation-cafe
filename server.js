@@ -10,6 +10,21 @@ const port = 4000;
 const app = express();
 const path = require('path');
 
+//intitializing csrf
+const bodyParser = require('body-parser');
+const csrf = require('csurf');
+const csrfMiddleware = csrf({ cookie: true });
+const cookieParser = require('cookie-parser');
+
+//using csrf
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(csrfMiddleware);
+app.all("*", (req, res, next) => {
+  res.cookie("XSRF-TOKEN", req.csrfToken());
+  next();
+});
+
 //initializing body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
