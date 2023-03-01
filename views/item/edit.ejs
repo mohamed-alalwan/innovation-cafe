@@ -19,7 +19,11 @@
     
         <div class="inputGroup">
             <label class="signUpLabel">Item Category</label>
-            <input class="SignUpInput" name="category" type="text" value="<%= item.category %>"/>
+            <select class="SignUpInput select" name="category" value="<%= item.category %>">
+                <option>Foods</option>
+                <option>Drinks</option>
+                <option>Deserts</option>
+            </select>
         </div>
     
         <div class="inputGroup">
