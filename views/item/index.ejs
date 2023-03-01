@@ -1,5 +1,11 @@
 <%- include('./partial/header.ejs') %>
-<div class="itemContainer">
+    <div class="filterGroup">
+            <a class="filterBtn" href="/item/index">All</a>
+            <a class="filterBtn" href="/item/index?filter=Foods">Foods</a>
+            <a class="filterBtn" href="/item/index?filter=Drinks">Drinks</a>
+            <a class="filterBtn" href="/item/index?filter=Deserts">Deserts</a>
+    </div>
+    <div class="itemContainer">
     <% items.forEach(function(item){ %>
         <a href="/item/show?id=<%= item._id %>">
             <div class="items">
@@ -16,4 +22,4 @@
     <% if (items.length === 0) { %>
         <p>No items found.</p>
     <% } %>
-</div>
+  </div>
