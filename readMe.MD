@@ -5,17 +5,17 @@ https://www.figma.com/file/6dEYevHm9PS1g9bo3BH8mP/Innovation-Cafe-Layout?node-id
 ## Trello:
 https://trello.com/b/078mfco7/project
 
-##Web App Link
+## Web App Link
 
-##Technology used
--EJS
--CSS
--Vanilla JavaScript
--Express
--Mongoose
--Firebase
--Multer
--cors
+## Technology used
+- EJS
+- CSS
+- Vanilla JavaScript
+- Express
+- Mongoose
+- Firebase
+- Multer
+- cors
 
 ## Unsolved Issue
 1. Image must be included whenever editing the item or the profile and this issue can be solved by making seperate method that accounts for no image input. And add a check whether an image input is detected or not.
