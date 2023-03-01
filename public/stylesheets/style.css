@@ -541,7 +541,7 @@ footer {
     width: 300px;
     height: 310px;
     background-color: #edefed;
-    margin: 10px;
+    margin: 10px 20px;
     color:#1e1e1e;
     font-size: 20px;
     text-align: center;
@@ -632,5 +632,5 @@ footer {
 
 /* Item Category selection */
 .select {
-    width: 320px;
+    width: 389px;
 }

@@ -1,16 +1,24 @@
 <%- include('./partial/header.ejs') %>
-<div class="itemContainer">
-    <% items.forEach(function(item){ %>
-        <a href="/item/show?id=<%= item._id %>">
-            <div class="items">
-                <img class="menuImage" src="<%= item.imageURL %>">
-                <p>
-                    <%= item.title %>
-                </p>
-                <span>
-                    <%= item.price %> BD
-                </span>
-            </div>
-        </a>
-    <% }) %>
-</div>
+    <!-- <div>
+        <form action="/item/index" method="GET">
+            <button name="filter" value="All" class="menuBtn activeBtn" id="all">All</button>
+            <button name="filter" value="Foods" class="menuBtn" id="foods">Foods</button>
+            <button name="filter" value="Drinks" class="menuBtn" id="drinkns">Drinks</button>
+            <button name="filter" value="Deserts" class="menuBtn" id="deserts">Deserts</button>
+        </form>
+    </div> -->
+    <div class="itemContainer">
+        <% items.forEach(function(item){ %>
+            <a href="/item/show?id=<%= item._id %>">
+                <div class="items">
+                    <img class="menuImage" src="<%= item.imageURL %>">
+                    <p>
+                        <%= item.title %>
+                    </p>
+                    <span>
+                        <%= item.price %> BD
+                    </span>
+                </div>
+            </a>
+            <% }) %>
+    </div>
