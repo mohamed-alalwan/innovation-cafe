@@ -544,7 +544,7 @@ footer {
     color:#1e1e1e;
     font-size: 20px;
     text-align: center;
-    border-radius: 20%;
+    border-radius: 30px;
     line-height: 30px;
     justify-content: center;
     padding: 10px;
@@ -560,7 +560,7 @@ footer {
 }
 
 .menuImage{
-    border-radius: 20%;
+    border-radius: 30px;
     object-fit: cover;
     width: 300px;
     height: 220px;
