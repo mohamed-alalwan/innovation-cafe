@@ -26,16 +26,7 @@ exports.item_index_get = (req, res) => {
         .catch(err => {
               console.log(err)
           })
-    }else if(req.query.filter){
-        Item.find({category: req.query.filter})
-        .then(async (items) => {
-              const user = await authCntrl.returnCurrentUser();
-              res.render('item/index', {items, auth: auth.currentUser, user})
-          })
-        .catch(err => {
-              console.log(err)
-          })
-    } else {
+    }else {
         Item.find()
       .then(async (items) => {
             const user = await authCntrl.returnCurrentUser();

@@ -31,6 +31,7 @@ const authRoute = require('./routes/auth');
 const itemRoute = require('./routes/item');
 const adminRoute = require('./routes/admin');
 const profileRoute = require('./routes/profile');
+const cartRoute = require('./routes/cart');
 
 //Mount Routers
 app.use('/home', indexRouter);
@@ -38,6 +39,7 @@ app.use('/auth', authRoute);
 app.use('/item', itemRoute);
 app.use('/admin', adminRoute);
 app.use('/profile', profileRoute);
+app.use('/cart', cartRoute);
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
