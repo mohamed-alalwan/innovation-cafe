@@ -1,0 +1,24 @@
+<%- include('./partial/header.ejs') %>
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    <% user.cart.forEach(cartItem => { %>
+     <tr>
+        <td>
+            <img src="<%= cartItem.imageURL%>" height="100" width="100" style="object-fit: cover; border-radius: 10px;"/>
+        </td>
+        <td><%= cartItem.title %></td>
+        <td><%= cartItem.des %></td>
+        <td><%= cartItem.price + ' BD'%></td>
+        <td>
+            <%= cartItem.quantity %>
+        </td>
+     </tr>
+    <% }) %>
+</table>
