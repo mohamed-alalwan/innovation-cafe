@@ -2,7 +2,7 @@
 require('./config/database');
 
 //initialize firebase
-require('./config/firebase');
+// require('./config/firebase');
 
 //initializing express
 const express = require('express');

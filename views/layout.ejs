@@ -26,27 +26,27 @@
                 <a href="/item/index">Menu</a>
             </div>
 
-            <% if (!auth) { %>
+            <% //if (!auth) { %>
                 <div class="ctaAuth">
                     <a class="signin" href="/auth/signin">Sign In</a>
                     <a class="signup" href="/auth/signup">Sign Up</a>
                 </div>
-            <% } %>
+            <% //} %>
             
-            <% if (user) { %>
+            <% //if (user) { %>
                 <a href="/profile/"></a>
                 <div class="profile-container">
                     <a href="/profile/">
-                        <img src="<%= user.avatarURL ? user.avatarURL : '/images/profile/guest.jpeg' %>" alt="profile pic">
+                        <img src="<%= //user.avatarURL ? user.avatarURL : '/images/profile/guest.jpeg' %>" alt="profile pic">
                     </a>
-                    <a href="/profile/"><%= user.firstName %></a>
-                    <% if (user.type === 'admin') { %>
+                    <a href="/profile/"><%= //user.firstName %></a>
+                    <% //if (user.type === 'admin') { %>
                         <a style="color: red;" href="/profile/">
-                            <%= `(${user.type.toUpperCase()})` %>
+                            <%= //`(${user.type.toUpperCase()})` %>
                         </a>
-                    <% } %>
+                    <% //} %>
                 </div>
-            <% } %>
+            <% //} %>
         </nav>
     </header>
 

@@ -1,5 +1,5 @@
 <%- include('./partial/header.ejs') %>
-<% if (user.cart.length > 0) { %>
+<% //if (user.cart.length > 0) { %>
     <table>
         <tr>
             <th>Image</th>
@@ -9,38 +9,38 @@
             <th>Quantity</th>
             <th></th>
         </tr>
-        <% let total=0 %>
-            <% user.cart.forEach(cartItem=> { %>
-                <% total +=parseFloat(cartItem.price)%>
+        <% //let total=0 %>
+            <% //user.cart.forEach(cartItem=> { %>
+                <% //total +=parseFloat(cartItem.price)%>
                     <tr>
                         <td>
-                            <img src="<%= cartItem.imageURL%>" height="100" width="100"
+                            <img src="<%= //cartItem.imageURL%>" height="100" width="100"
                                 style="object-fit: cover; border-radius: 10px;" />
                         </td>
                         <td>
-                            <%= cartItem.title %>
+                            <%= //cartItem.title %>
                         </td>
                         <td>
-                            <%= cartItem.des %>
+                            <%= //cartItem.des %>
                         </td>
                         <td>
-                            <%= cartItem.price + ' BD' %>
+                            <%= //artItem.price + ' BD' %>
                         </td>
                         <td>
-                            <%= cartItem.quantity %>
+                            <%= //cartItem.quantity %>
                         </td>
                         <td>
-                            <a href="/cart/delete?id=<%= cartItem.id %>">Remove</a>
+                            <a href="/cart/delete?id=<%= //cartItem.id %>">Remove</a>
                         </td>
                     </tr>
-                    <% }) %>
+                    <% //}) %>
     </table>
     
     <div>
         <div class="total-price">
             <h2>Total Price:</h2>
             <p class="SingUpInput totalPrice">
-                <%= total.toFixed(2) + ' BD' %>
+                <%= //total.toFixed(2) + ' BD' %>
             </p>
         </div>
     
@@ -48,12 +48,12 @@
             <button class="btn width50 chkBtn">Checkout</button>
             <a class="btn width50" href="/item/index">Continue Shopping</a>
         </div>
-        <% } else{%>
+        <% //} else{%>
             <p class="notFound">No item in cart.</p>
             <div class="cartButtonsContainer btnGroup">
                 <a class="btn width50" href="/item/index">Continue Shopping</a>
             </div>
-            <% } %>
+            <% //} %>
     
     </div>
 

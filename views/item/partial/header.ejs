@@ -1,11 +1,11 @@
 <div class="sub-nav">
     <div>
         <a href="/item/index">Menu</a>
-        <% if (user) { %>
-            <% if (user.type === 'admin') { %>
+        <% //if (user) { %>
+            <% //if (user.type === 'admin') { %>
                 <a href="/item/add">Add Item</a>
-            <% } %>
-        <% } %>
+            <% //} %>
+        <% //} %>
     </div>
     <div class="searchContainer">
         <form action="/item/index">
@@ -13,17 +13,17 @@
             <button type="submit">Search</button>
         </form>
     </div>
-    <% if (user) { %>
+    <% //if (user) { %>
         <a href="/cart/index">
             <div class="cart-container">
                 <img src="/images/cart.png" alt="cart">
                 <h6>
-                    <%= user.cart.length %>
+                    <%= //user.cart.length %>
                 </h6>
             </div>
         </a>
-    <% } else{%>
+    <% //} else{%>
         <p style="color: red
         ;">You need to sign in to order</p>
-    <% } %>
+    <% //} %>
 </div>

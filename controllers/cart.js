@@ -1,73 +1,63 @@
-const firebase = require('firebase/auth');
-const auth = firebase.getAuth();
-const authCntrl = require('../controllers/auth');
 const User = require('../models/User');
 
 //go to cart
 exports.cart_index_get = async (req, res) => {
-    if(auth.currentUser){
-        res.render('item/cart', {
-            auth: auth.currentUser,
-            user: await authCntrl.returnCurrentUser(),
-        });
-    }else{
-        res.redirect("/item/index");
-        console.log('not authorized');
-    }
+    res.render('item/cart', {
+    });
 }
 
 //add to cart
 exports.cart_create_get = async (req, res) => {
-    if(auth.currentUser){
-        const itemID = req.query.id;
-        User.findOne({ firebaseID: auth.currentUser.uid })
-        .then(async (user) => {
-            const cart = user.cart;
-            //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
-            cart.push(itemID);
-            User.findByIdAndUpdate(user._id, {cart}, {new: true})
-            .then(user => {
-                console.log(user);
-                //success
-                res.redirect('/cart/index');
-            })
-            .catch(err => {
-                console.log(err);
-            })
+    // if(auth.currentUser){
+    //     const itemID = req.query.id;
+    //     User.findOne({ firebaseID: auth.currentUser.uid })
+    //     .then(async (user) => {
+    //         const cart = user.cart;
+    //         //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
+    //         cart.push(itemID);
+    //         User.findByIdAndUpdate(user._id, {cart}, {new: true})
+    //         .then(user => {
+    //             console.log(user);
+    //             //success
+    //             res.redirect('/cart/index');
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
 
-        }).catch(err => {
-            console.log(err);
-        })
-    }else{
-        res.redirect("/item/index");
-        console.log('not authorized');
-    }
+    //     }).catch(err => {
+    //         console.log(err);
+    //     })
+    // }else{
+    //     res.redirect("/item/index");
+    //     console.log('not authorized');
+    // }
 }
 
 //remove from cart
 exports.cart_delete_get = async (req, res) => {
-    if(auth.currentUser){
-        const itemID = req.query.id;
-        User.findOne({ firebaseID: auth.currentUser.uid })
-       .then(async (user) => {
-            const cart = user.cart;
-            //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
-            cart.splice(cart.indexOf(itemID), 1);
-            User.findByIdAndUpdate(user._id, {cart}, {new: true})
-           .then(user => {
-                console.log(user);
-                //success
-                res.redirect('/cart/index');
-            })
-           .catch(err => {
-                console.log(err);
-            })
+    // if(auth.currentUser){
+    //     const itemID = req.query.id;
+    //     User.findOne({ firebaseID: auth.currentUser.uid })
+    //    .then(async (user) => {
+    //         const cart = user.cart;
+    //         //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
+    //         cart.splice(cart.indexOf(itemID), 1);
+    //         User.findByIdAndUpdate(user._id, {cart}, {new: true})
+    //        .then(user => {
+    //             console.log(user);
+    //             //success
+    //             res.redirect('/cart/index');
+    //         })
+    //        .catch(err => {
+    //             console.log(err);
+    //         })
 
-        }).catch(err => {
-            console.log(err);
-        })
-    }else{
-        res.redirect("/item/index");
-        console.log('not authorized');
-    }
+    //     }).catch(err => {
+    //         console.log(err);
+    //     })
+    // }else{
+    //     res.redirect("/item/index");
+    //     console.log('not authorized');
+    // }
 }
