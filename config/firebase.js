@@ -1,5 +1,6 @@
 require('dotenv').config();
 const firebase = require("firebase/app");
+const firebaseAuth = require("firebase/auth");
 const { getStorage } = require("firebase/storage");
 const apiKey = process.env.API_KEY;
 const authDomain = process.env.AUTH_DOMAIN;
@@ -20,5 +21,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
+firebaseAuth.getAuth().setPersistence();
 
 module.exports = getStorage(app);
