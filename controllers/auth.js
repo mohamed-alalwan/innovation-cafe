@@ -41,8 +41,7 @@ exports.auth_signup_post = async (req, res) => {
 
 // HTTP Sign in Get
 exports.auth_signin_get = async (req, res) => {
-    res.render('auth/signin', {
-    });
+    res.render('auth/signin');
 }
 
 // HTTP Sign in Post
@@ -79,10 +78,3 @@ exports.auth_signout_get = (req, res) => {
 exports.auth_forgot_password_get = async (req, res) => {
     res.render('auth/forgot_password');
 }
-
-// // HTTP Password Reset Post
-// exports.auth_forgot_password_post = async (req, res) => {
-//     res.redirect('/auth/signin');
-// }
-
-
