@@ -63,7 +63,7 @@ if (signupForm) {
               if (data.success) {
                 window.location.href = '/home';
               } else {
-                window.location.href = 'auth/signup';
+                window.location.href = '/auth/signup';
               }
             })
         });
