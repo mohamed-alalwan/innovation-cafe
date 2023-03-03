@@ -1,6 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getAuth} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+// import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,5 +20,34 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// auth.setPersistence(auth.Auth.Persistence.LOCAL );
-console.log('Hi')
+
+
+document.getElementById('signup').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+  console.log(auth);
+  createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    userCredential.user.getIdToken()
+    .then((idToken) => {
+      fetch('/auth/signin', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'CSRF-Token': Cookies.get('XSRF-Token'),
+          body: JSON.stringify({email, password, idToken})
+        }
+      })
+    })
+  })
+  .then(() => {
+    auth.signOut()
+  })
+  // .then(() => {
+  //   window.location.assign('/profile')
+  // })
+  .catch((error) => {
+      console.log(error);
+  });
+});

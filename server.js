@@ -2,13 +2,23 @@
 require('./config/database');
 
 //initialize firebase
-// require('./config/firebase');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./google-api-credentials.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
 
 //initializing express
 const express = require('express');
 const port = 4000;
 const app = express();
 const path = require('path');
+
+//initializing csrf
+const csrf = require('csurf');
 
 //initializing body-parser
 app.use(express.json());
