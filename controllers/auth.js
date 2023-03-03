@@ -77,13 +77,12 @@ exports.auth_signout_get = (req, res) => {
 
 // HTTP Password Reset Get
 exports.auth_forgot_password_get = async (req, res) => {
-    res.render('auth/forgot_password', {
-    });
+    res.render('auth/forgot_password');
 }
 
-// HTTP Password Reset Post
-exports.auth_forgot_password_post = async (req, res) => {
-    res.redirect('/auth/signin');
-}
+// // HTTP Password Reset Post
+// exports.auth_forgot_password_post = async (req, res) => {
+//     res.redirect('/auth/signin');
+// }
 
 

@@ -774,3 +774,10 @@ th {
         transform: rotate(360deg);
     }
 }
+
+/* message */
+
+#message{
+    color: rgb(90, 90, 90);
+    text-align: center;
+}

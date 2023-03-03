@@ -43,3 +43,4 @@ exports.authenticate = (req, res, next) => {
             res.redirect('/auth/signin');
         })
 };
+

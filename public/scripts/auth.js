@@ -1,9 +1,19 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
 // import { initializeApp } from "firebase/app";
-// import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   sendPasswordResetEmail
+// } from "firebase/auth";
 
 import 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js';
 
@@ -70,6 +80,7 @@ if (signupForm) {
       .catch((error) => {
         loader.style.display = 'none';
         console.log(error.message);
+        document.getElementById('message').innerHTML = '&#9432; ' + error.message;
       });
   });
 }
@@ -108,6 +119,30 @@ if (signinForm) {
       .catch((error) => {
         loader.style.display = 'none';
         console.log(error.message);
+        document.getElementById('message').innerHTML = '&#9432; ' + error.message;
       });
   });
+}
+
+//forgot password
+const forgotForm = document.getElementById('forgot');
+if (forgotForm) {
+  console.log(forgotForm);
+  forgotForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const loader = document.getElementsByClassName('loader')[0];
+    loader.style.display = 'block';
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        loader.style.display = 'none';
+        document.getElementById('message').innerHTML = '&#9432; Check your email for a password reset link';
+      })
+      .catch((error) => {
+        loader.style.display = 'none';
+        console.log(error.message);
+        document.getElementById('message').innerHTML = '&#9432; ' + error.message;
+      });
+  })
+
 }

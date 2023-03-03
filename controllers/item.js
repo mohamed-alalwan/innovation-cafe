@@ -125,7 +125,7 @@ exports.item_edit_post = (req, res) => {
                             console.log(err);
                         } else {
                             Item.findByIdAndUpdate(id, { imageURL, title, des, category, price }, { new: true })
-                                .then(updatedItem => {
+                                .then(() => {
                                     res.redirect('/item/index');
                                 });
                         }

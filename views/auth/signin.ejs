@@ -4,12 +4,12 @@
             <h1 class="textCenter">Sign In</h1>
             <div class="inputGroup">
                 <label class="signUpLabel">Email Address</label>
-                <input name="email" type="email" class="SignUpInput" />
+                <input name="email" type="email" class="SignUpInput" required/>
             </div>
     
             <div class="inputGroup">
                 <label class="signUpLabel">Password</label>
-                <input name="password" type="password" class="SignUpInput" />
+                <input name="password" type="password" class="SignUpInput" required/>
             </div>
             <button type="submit" class="btn signInBtn">Sign In</button>
             <div class="create">
@@ -20,6 +20,7 @@
                 <a href="/auth/forgot_password">Forget password? </a>
             </div>
             <div class="loader"></div>
+            <p id="message"></p>
         </form>
     </div>
 <% } %>
