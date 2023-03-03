@@ -1,5 +1,5 @@
 <%- include('./partial/header.ejs') %>
-<% if (user.cart.length > 0) { %>
+<% if (locals.user.cart.length > 0) { %>
     <table>
         <tr>
             <th>Image</th>
@@ -10,7 +10,7 @@
             <th></th>
         </tr>
         <% let total=0 %>
-            <% user.cart.forEach(cartItem=> { %>
+            <% locals.user.cart.forEach(cartItem=> { %>
                 <% total +=parseFloat(cartItem.price)%>
                     <tr>
                         <td>

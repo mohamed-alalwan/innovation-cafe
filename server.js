@@ -1,7 +1,7 @@
 //initialize database
 require('./config/database');
 
-//initialize firebase
+//initialize firebase admin
 require('./config/firebase');
 
 //initializing express
@@ -10,24 +10,14 @@ const port = 4000;
 const app = express();
 const path = require('path');
 
-//intitializing csrf
-const bodyParser = require('body-parser');
-const csrf = require('csurf');
-const csrfMiddleware = csrf({ cookie: true });
+//initialize cookie parser
 const cookieParser = require('cookie-parser');
-
-//using csrf
-app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(csrfMiddleware);
-app.all("*", (req, res, next) => {
-  res.cookie("XSRF-TOKEN", req.csrfToken());
-  next();
-});
 
 //initializing body-parser
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Look for all ejs files
 app.set('views', path.join(__dirname, 'views'));
@@ -60,6 +50,6 @@ app.get('/', (req, res) => {
 });
 
 //listen to port
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log(`Hi, the server should be connected on port ${port}`);
 });

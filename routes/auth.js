@@ -4,6 +4,10 @@ const router = express.Router();
 //auth controller
 const authCntrl = require('../controllers/auth');
 
+//set up user auth middleware
+const auth = require('../middleware/auth');
+router.use(auth.setUser);
+
 //sign up
 router.get('/signup', authCntrl.auth_signup_get);
 router.post('/signup', authCntrl.auth_signup_post);
@@ -17,6 +21,6 @@ router.get('/signout', authCntrl.auth_signout_get);
 
 //password reset
 router.get('/forgot_password', authCntrl.auth_forgot_password_get);
-router.post('/forgot_password', authCntrl.auth_forgot_password_post);
+// router.post('/forgot_password', authCntrl.auth_forgot_password_post);
 
 module.exports = router;

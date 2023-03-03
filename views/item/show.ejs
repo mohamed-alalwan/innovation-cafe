@@ -17,8 +17,8 @@
         <div class="inputGroup showCenter">
             <span>Price:  </span><%= item.price %> <span>BD</span>
         </div>
-        <% if (user) { %>
-            <% if (user.type==='admin' ) { %>
+        <% if (locals.user) { %>
+            <% if (locals.user.type==='admin' ) { %>
                 <div class="btnGroup">
                     <a class="btn" href="/item/edit?id=<%=item._id%>">Edit</a>
                     <a class="btn" href="/item/delete?id=<%=item._id%>">Delete</a>

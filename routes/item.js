@@ -3,6 +3,10 @@ const router = express.Router()
 
 const itemCntrl = require('../controllers/item');
 
+//set up user auth middleware
+const auth = require('../middleware/auth');
+router.use(auth.setUser);
+
 //multer initialization
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -14,7 +18,7 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname);
     }
 });
-const upload = multer({storage: storage});
+const upload = multer({ storage: storage });
 router.use(upload.single('imageURL'));
 
 // Call API

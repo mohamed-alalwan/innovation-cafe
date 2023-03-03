@@ -1,10 +1,10 @@
-<% if (auth) { %>
+<% if (locals.user) { %>
     <p>You are already signed-in!</p>
 <% }%>
 
-<% if (!auth) { %>
+<% if (!locals.user) { %>
 <div class="SignUpPage">
-    <form class="form" method="POST" action="/auth/signup">
+    <form id="signup" class="form" method="POST" action="/auth/signup">
         <h1 class="textCenter"> Welcome to Innovation Cafe</h1>
         <p class="textCenter">Please fill all the required field -*- </p>
         <!-- Progress bar -->
@@ -21,7 +21,7 @@
 
             <div class="inputGroup">
                 <label class="signUpLabel">Email Address *</label>
-                <input name="email" type="email" class="SignUpInput" />
+                <input name="email" type="email" class="SignUpInput"/>
             </div>
             <div class="inputGroup">
                 <label class="signUpLabel">Password *</label>
@@ -32,7 +32,6 @@
                 <input name="confirmPassword" type="password" class="SignUpInput" />
             </div>
             <div>
-                <!-- <a href="#" class="btn btnNext width50 rightBtn">Next</a> -->
                 <button type="button" class="btn btnNext width50 rightBtn">Next</button>
             </div>
         </div>
@@ -52,9 +51,7 @@
                 <input name="phoneNumber" type="text" id="phoneNumber" class="SignUpInput" />
             </div>
             <div class="btnGroup">
-                <!-- <a href="#" class="btn btnPrevious">Previous</a> -->
                 <button type="button" class="btn btnPrevious">Previous</button>
-                <!-- <a href="#" class="btn btnNext">Next</a> -->
                 <button type="button" class="btn btnNext">Next</button>
             </div>
         </div>
@@ -80,14 +77,15 @@
             </div>
 
             <div class="btnGroup">
-                <!-- <a href="#" class="btn btnPrevious">Previous</a> -->
                 <button type="button" class="btn btnPrevious">Previous</button>
-                <!-- <a href="#" class="btn btnNext btnSubmit">Submit</a> -->
                 <button type="submit" class="btn btnNext btnSubmit">Submit</button>
             </div>
         </div>
         <br>
+        <div class="loader"></div>
+        <p id="message"></p>
         <a class="haveAcct" href="/auth/signin">Already have an account?</a>
     </form>
+    
 </div>
 <% }%>
