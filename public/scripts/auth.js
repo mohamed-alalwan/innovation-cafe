@@ -102,7 +102,7 @@ if (signinForm) {
             if (data.success) {
               window.location.href = '/home';
             } else {
-              window.location.href = 'auth/signin';
+              window.location.href = '/auth/signin';
             }
           });
       });
