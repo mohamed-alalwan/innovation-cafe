@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovation Cafe</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="/functions/Function.js"></script>
+    <script src="/scripts/formSteps.js"></script>
+    <script type="module" src="/scripts/auth.js" defer></script>
 </head>
 
 <body>
@@ -26,23 +27,23 @@
                 <a href="/item/index">Menu</a>
             </div>
 
-            <% if (!auth) { %>
+            <% if (!locals.user) { %>
                 <div class="ctaAuth">
                     <a class="signin" href="/auth/signin">Sign In</a>
                     <a class="signup" href="/auth/signup">Sign Up</a>
                 </div>
             <% } %>
             
-            <% if (user) { %>
+            <% if (locals.user) { %>
                 <a href="/profile/"></a>
                 <div class="profile-container">
                     <a href="/profile/">
-                        <img src="<%= user.avatarURL ? user.avatarURL : '/images/profile/guest.jpeg' %>" alt="profile pic">
+                        <img src="<%= locals.user.avatarURL ? locals.user.avatarURL : '/images/profile/guest.jpeg' %>" alt="profile pic">
                     </a>
-                    <a href="/profile/"><%= user.firstName %></a>
-                    <% if (user.type === 'admin') { %>
+                    <a href="/profile/"><%= locals.user.firstName %></a>
+                    <% if (locals.user.type === 'admin') { %>
                         <a style="color: red;" href="/profile/">
-                            <%= `(${user.type.toUpperCase()})` %>
+                            <%= `(${locals.user.type.toUpperCase()})` %>
                         </a>
                     <% } %>
                 </div>

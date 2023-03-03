@@ -1,102 +1,88 @@
-const User = require('../models/User')
-const firebase = require('firebase/auth');
-const auth = firebase.getAuth();
+const User = require('../models/User');
+const admin = require('firebase-admin');
 
-exports.returnCurrentUser =  () => {
-    if(auth.currentUser) {
-        try{
-            const user = User.findOne({firebaseID: auth.currentUser.uid}).populate('cart')
-            return user;
-        } catch(err) {
-            return err;
-        }
-    }
-}
+
 // HTTP Sign up Get
 exports.auth_signup_get = async (req, res) => {
-    const user = await this.returnCurrentUser();
     res.render('auth/signup', {
-        auth: auth.currentUser,
-        user
     });
 }
 
 // HTTP Sign up Post
 exports.auth_signup_post = async (req, res) => {
-    firebase.createUserWithEmailAndPassword(auth,req.body.email, req.body.password).then((userCredentials) => {
-        const user =  new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            area: req.body.area,
-            block: req.body.block,
-            street: req.body.street,
-            house: req.body.house,
-            phoneNumber: req.body.phoneNumber,
-            type: 'customer',
-            firebaseID: userCredentials.user.uid
+    console.log(req.body);
+    const idToken = req.body.idToken;
+    admin.auth().verifyIdToken(idToken)
+        .then((decodedToken) => {
+            const firebaseID = decodedToken.uid;
+            const user = new User({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                area: req.body.area,
+                block: req.body.block,
+                street: req.body.street,
+                house: req.body.house,
+                phoneNumber: req.body.phoneNumber,
+                type: 'customer',
+                firebaseID: firebaseID
+            });
+            user.save().then(() => {
+                console.log('User created =>', user);
+                createSessionCookie(res, req);
+            }).catch(err => {
+                console.log(err);
+                res.json({ success: false });
+            });
+        })
+        .catch((error) => {
+            console.log(error);
         });
-        user.save().then(() => {
-            console.log("signed up");
-            res.redirect('/home/index');
-        }).catch(err => {
-            console.log("failed to sign up - error = " + err.message);
-            es.redirect('/auth/signin');
-            console.log(err);
-        });
-    }).catch((err) => {
-        console.log("failed to sign up - error = " + err.message);
-        res.redirect('/auth/signin');
-        console.log(err);
-    });
 }
 
 // HTTP Sign in Get
 exports.auth_signin_get = async (req, res) => {
-    const user = await this.returnCurrentUser();
-        res.render('auth/signin', {
-            auth: auth.currentUser,
-            user
-    }); 
+    res.render('auth/signin', {
+    });
 }
 
 // HTTP Sign in Post
 exports.auth_signin_post = async (req, res) => {
-    firebase.signInWithEmailAndPassword(auth,req.body.email, req.body.password).then((userCredentials) => {
-        console.log('signed in');
-        res.redirect('/home/index');
-    }).catch(err => {
-        console.log(err);
-    });
+    console.log(req.body);
+    createSessionCookie(res, req);
+}
+
+async function createSessionCookie(res, req) {
+    const idToken = req.body.idToken;
+    const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
+    await
+        admin
+            .auth()
+            .createSessionCookie(idToken, { expiresIn })
+            .then(sessionCookie => {
+                const options = { maxAge: expiresIn, httpOnly: true };
+                res.cookie('session', sessionCookie, options);
+                res.json({ success: true });
+            })
+            .catch(error => {
+                console.log(error);
+                res.json({ success: false });
+            });
 }
 
 // HTTP Sign out Get
 exports.auth_signout_get = (req, res) => {
-    firebase.signOut(auth).then(() => {
-        res.redirect('/auth/signin');
-    }).catch(err => {
-        console.log(err);
-    });
+    res.clearCookie('session');
+    res.redirect('/auth/signin');
 }
 
 // HTTP Password Reset Get
 exports.auth_forgot_password_get = async (req, res) => {
-    const user = await this.returnCurrentUser();
-    res.render('auth/forgot_password', {
-        auth: auth.currentUser,
-        user
-    });
+    res.render('auth/forgot_password');
 }
 
-// HTTP Password Reset Post
-exports.auth_forgot_password_post = async (req, res) => {
-    firebase.sendPasswordResetEmail(auth,req.body.email)
-    .then(() => {
-        res.redirect('/auth/signin');
-    })
-    .catch(err => {
-        console.log(err);
-        res.redirect('/auth/signin');
-    });
-}
+// // HTTP Password Reset Post
+// exports.auth_forgot_password_post = async (req, res) => {
+//     res.redirect('/auth/signin');
+// }
 
 
