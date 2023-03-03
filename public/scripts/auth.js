@@ -6,15 +6,6 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-
-// import { initializeApp } from "firebase/app";
-// import {
-//   getAuth,
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   sendPasswordResetEmail
-// } from "firebase/auth";
-
 import 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js';
 
 // Your web app's Firebase configuration
