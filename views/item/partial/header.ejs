@@ -1,8 +1,8 @@
 <div class="sub-nav">
     <div>
         <a href="/item/index">Menu</a>
-        <% if (user) { %>
-            <% if (user.type === 'admin') { %>
+        <% if (locals.user) { %>
+            <% if (locals.user.type === 'admin') { %>
                 <a href="/item/add">Add Item</a>
             <% } %>
         <% } %>
@@ -13,12 +13,12 @@
             <button type="submit">Search</button>
         </form>
     </div>
-    <% if (user) { %>
+    <% if (locals.user) { %>
         <a href="/cart/index">
             <div class="cart-container">
                 <img src="/images/cart.png" alt="cart">
                 <h6>
-                    <%= user.cart.length %>
+                    <%= locals.user.cart.length %>
                 </h6>
             </div>
         </a>
