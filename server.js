@@ -1,15 +1,8 @@
 //initialize database
 require('./config/database');
 
-//initialize firebase
-var admin = require("firebase-admin");
-
-var serviceAccount = require("./google-api-credentials.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-
+//initialize firebase admin
+require('./config/firebase');
 
 //initializing express
 const express = require('express');
@@ -17,12 +10,14 @@ const port = 4000;
 const app = express();
 const path = require('path');
 
-//initializing csrf
-const csrf = require('csurf');
+//initialize cookie parser
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 //initializing body-parser
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Look for all ejs files
 app.set('views', path.join(__dirname, 'views'));
@@ -55,6 +50,6 @@ app.get('/', (req, res) => {
 });
 
 //listen to port
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log(`Hi, the server should be connected on port ${port}`);
 });

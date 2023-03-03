@@ -1,6 +1,6 @@
-<% //if (!auth) { %>
+<% if (!locals.user) { %>
     <div class="SignUpPage">
-        <form class="form" method="POST" action="/auth/signin">
+        <form id="signin" class="form" method="POST" action="/auth/signin">
             <h1 class="textCenter">Sign In</h1>
             <div class="inputGroup">
                 <label class="signUpLabel">Email Address</label>
@@ -19,11 +19,12 @@
             <div class="forgetPArent">
                 <a href="/auth/forgot_password">Forget password? </a>
             </div>
+            <div class="loader"></div>
         </form>
     </div>
-<% //} %>
+<% } %>
 
-<% //if (auth) { %>
+<% if (locals.user) { %>
     <p>You are already signed-in!</p>
-<% //}%>
+<% }%>
 

@@ -4,6 +4,10 @@ const router = express.Router();
 //auth controller
 const authCntrl = require('../controllers/auth');
 
+//set up user auth middleware
+const auth = require('../middleware/auth');
+router.use(auth.setUser);
+
 //sign up
 router.get('/signup', authCntrl.auth_signup_get);
 router.post('/signup', authCntrl.auth_signup_post);

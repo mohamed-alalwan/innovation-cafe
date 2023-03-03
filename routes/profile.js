@@ -15,7 +15,12 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname);
     }
 });
-const upload = multer({storage: storage});
+
+//set up user auth middleware
+const auth = require('../middleware/auth');
+router.use(auth.authenticate);
+
+const upload = multer({ storage: storage });
 router.use(upload.single('avatarURL'));
 
 //show profile
@@ -28,8 +33,5 @@ router.post('/edit_personal', profileCntrl.profile_edit_personal_post);
 //edit address info
 router.get('/edit_address', profileCntrl.profile_edit_address_get);
 router.post('/edit_address', profileCntrl.profile_edit_address_post);
-
-
-
 
 module.exports = router;

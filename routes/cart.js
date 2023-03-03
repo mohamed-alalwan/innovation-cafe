@@ -4,6 +4,10 @@ const router = express.Router();
 
 const cartCtrl = require("../controllers/cart");
 
+//set up user auth middleware
+const auth = require('../middleware/auth');
+router.use(auth.setUser);
+
 //Call API.
 
 //index

@@ -1,8 +1,8 @@
-<% //if (auth) { %>
+<% if (locals.user) { %>
     <p>You are already signed-in!</p>
-<% //}%>
+<% }%>
 
-<% //if (!auth) { %>
+<% if (!locals.user) { %>
 <div class="SignUpPage">
     <form id="signup" class="form" method="POST" action="/auth/signup">
         <h1 class="textCenter"> Welcome to Innovation Cafe</h1>
@@ -82,7 +82,9 @@
             </div>
         </div>
         <br>
+        <div class="loader"></div>
         <a class="haveAcct" href="/auth/signin">Already have an account?</a>
     </form>
+    
 </div>
-<% //}%>
+<% }%>

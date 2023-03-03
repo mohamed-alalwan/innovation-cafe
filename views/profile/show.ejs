@@ -1,27 +1,32 @@
 <%- include('./partial/header.ejs') %>
+<% if (locals.user) { %>
 <div class="profile-main-container">
     <div>
         <h2>Personal</h2>
-        <img src="<%= user.avatarURL ? user.avatarURL : '/images/profile/guest.jpeg' %>" alt="">
-        <h3><%= user.firstName + " " + user.lastName %></h3>
-        <h3>PhoneNumber : <%= user.phoneNumber %></h3>
+        <img src="<%= locals.user.avatarURL ? locals.user.avatarURL : '/images/profile/guest.jpeg' %>" alt="">
+        <h3>
+            <%= locals.user.firstName + " " + locals.user.lastName %>
+        </h3>
+        <h3>PhoneNumber : <%= locals.user.phoneNumber %>
+        </h3>
         <a href="/profile/edit_personal">Edit</a>
     </div>
     <div>
         <h2>Address</h2>
         <h3>
-            Area: <%= user.area %>
+            Area: <%= locals.user.area %>
         </h3>
         <h3>
-            Block: <%= user.block %>
+            Block: <%= locals.user.block %>
         </h3>
         <h3>
-            Street: <%= user.street %>
+            Street: <%= locals.user.street %>
         </h3>
         <h3>
-            House: <%= user.house %>
+            House: <%= locals.user.house %>
         </h3>
-        <a href="/profile/edit_personal">Edit</a>
+        <a href="/profile/edit_address">Edit</a>
     </div>
 
 </div>
+<% } %>
