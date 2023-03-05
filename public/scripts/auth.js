@@ -61,6 +61,7 @@ if (signupForm) {
             .then(result => result.json())
             .then(data => {
               if (data.success) {
+                localStorage.removeItem('items');
                 window.location.href = '/home';
               } else {
                 window.location.href = 'auth/signup';
@@ -100,6 +101,7 @@ if (signinForm) {
           .then(result => result.json())
           .then(data => {
             if (data.success) {
+              localStorage.removeItem('items');
               window.location.href = '/home';
             } else {
               window.location.href = 'auth/signin';

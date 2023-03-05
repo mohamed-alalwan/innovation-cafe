@@ -1,61 +1,118 @@
 <%- include('./partial/header.ejs') %>
-<% if (locals.user.cart.length > 0) { %>
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Item</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th></th>
-        </tr>
-        <% let total=0 %>
-            <% locals.user.cart.forEach(cartItem=> { %>
-                <% total +=parseFloat(cartItem.price)%>
-                    <tr>
-                        <td>
-                            <img src="<%= cartItem.imageURL%>" height="100" width="100"
-                                style="object-fit: cover; border-radius: 10px;" />
-                        </td>
-                        <td>
-                            <%= cartItem.title %>
-                        </td>
-                        <td>
-                            <%= cartItem.des %>
-                        </td>
-                        <td>
-                            <%= cartItem.price + ' BD' %>
-                        </td>
-                        <td>
-                            <%= cartItem.quantity %>
-                        </td>
-                        <td>
-                            <a href="/cart/delete?id=<%= cartItem.id %>">Remove</a>
-                        </td>
-                    </tr>
-                    <% }) %>
-    </table>
+<% if (locals.user) { %>
+    <% if (locals.user.cart.length> 0) { %>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            <% let total=0 %>
+                <% locals.user.cart.forEach(cartItem=> { %>
+                    <% total +=parseFloat(cartItem.price)%>
+                        <tr>
+                            <td>
+                                <img src="<%= cartItem.imageURL%>" height="100" width="100"
+                                    style="object-fit: cover; border-radius: 10px;" />
+                            </td>
+                            <td>
+                                <%= cartItem.title %>
+                            </td>
+                            <td>
+                                <%= cartItem.des %>
+                            </td>
+                            <td>
+                                <%= cartItem.price + ' BD' %>
+                            </td>
+                            <td>
+                                <%= cartItem.quantity %>
+                            </td>
+                            <td>
+                                <a href="/cart/delete?id=<%= cartItem.id %>">Remove</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+        </table>
     
-    <div>
-        <div class="total-price">
-            <h2>Total Price:</h2>
-            <p class="SingUpInput totalPrice">
-                <%= total.toFixed(2) + ' BD' %>
-            </p>
-        </div>
+        <div>
+            <div class="total-price">
+                <h2>Total Price:</h2>
+                <p class="SingUpInput totalPrice">
+                    <%= total.toFixed(2) + ' BD' %>
+                </p>
+            </div>
     
-        <div class="cartButtonsContainer btnGroup">
-            <button class="btn width50 chkBtn">Checkout</button>
-            <a class="btn width50" href="/item/index">Continue Shopping</a>
-        </div>
-        <% } else{%>
-            <p class="notFound">No item in cart.</p>
             <div class="cartButtonsContainer btnGroup">
+                <button class="btn width50 chkBtn">Checkout</button>
                 <a class="btn width50" href="/item/index">Continue Shopping</a>
             </div>
+            <% } else{%>
+                <p class="notFound">No item in cart.</p>
+                <div class="cartButtonsContainer btnGroup">
+                    <a class="btn width50" href="/item/index">Continue Shopping</a>
+                </div>
             <% } %>
-    
-    </div>
+        </div>
 
 
+<% } else { //guest%>
+    <% if (locals.items && locals.items.length > 0) { %>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            <% let total=0 %>
+                <% locals.items.forEach(cartItem=> { %>
+                    <% total +=parseFloat(cartItem.price)%>
+                        <tr>
+                            <td>
+                                <img src="<%= cartItem.imageURL%>" height="100" width="100"
+                                    style="object-fit: cover; border-radius: 10px;" />
+                            </td>
+                            <td>
+                                <%= cartItem.title %>
+                            </td>
+                            <td>
+                                <%= cartItem.des %>
+                            </td>
+                            <td>
+                                <%= cartItem.price + ' BD' %>
+                            </td>
+                            <td>
+                                <%= cartItem.quantity %>
+                            </td>
+                            <td>
+                                <a class="remove" data-id="<%= cartItem.id %>" href="/cart/index">Remove</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+        </table>
+        <div>
+            <div class="total-price">
+                <h2>Total Price:</h2>
+                <p class="SingUpInput totalPrice">
+                    <%= total.toFixed(2) + ' BD' %>
+                </p>
+            </div>
+        
+            <div class="cartButtonsContainer btnGroup">
+                <button class="btn width50 chkBtn">Checkout</button>
+                <a class="btn width50" href="/item/index">Continue Shopping</a>
+            </div>
+            
+    <% } else{%>
+        <p class="notFound">No item in cart.</p>
+        <div class="cartButtonsContainer btnGroup">
+            <a class="btn width50" href="/item/index">Continue Shopping</a>
+        </div>
+    <% } %>
 
+<% } %>

@@ -49,6 +49,14 @@ app.get('/', (req, res) => {
     res.redirect('/home');
 });
 
+//set up user auth middleware
+const auth = require('./middleware/auth');
+app.use(auth.setUser);
+
+app.all('*', function (req, res) {
+    res.status(404).render('error/404');
+});
+
 //listen to port
 app.listen(port, () => {
     console.log(`Hi, the server should be connected on port ${port}`);

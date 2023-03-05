@@ -10,15 +10,15 @@ exports.setUser = (req, res, next) => {
                 .populate('cart')
                 .then((user) => {
                     res.locals.user = user;
-                    console.log(res.locals.user);
+                    console.log('User online =>', firebaseID);
                     next();
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log('Error retrieving user =>', firebaseID);
                     next();
                 })
         }).catch((error) => {
-            console.log(error);
+            console.log('Guest user');
             next();
         })
 };
@@ -31,15 +31,15 @@ exports.authenticate = (req, res, next) => {
             User.findOne({ firebaseID: firebaseID })
                 .then((user) => {
                     res.locals.user = user;
-                    console.log(res.locals.user);
+                    console.log('User online =>', firebaseID);
                     next();
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log('Error retrieving user =>', firebaseID);
                     res.redirect('/auth/signin');
                 })
         }).catch((error) => {
-            console.log(error);
+            console.log('Guest user');
             res.redirect('/auth/signin');
         })
 };
