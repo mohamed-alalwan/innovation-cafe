@@ -22,8 +22,16 @@
                 </h6>
             </div>
         </a>
-    <% } else{%>
-        <p style="color: red
-        ;">You need to sign in to order</p>
+    <% } else{ //guest%>
+        <form action="/cart/index">
+            <button class="cartBtn" type="submit">
+                <div class="cart-container">
+                    <img src="/images/cart.png" alt="cart">
+                    <h6>
+                    </h6>
+                    <input type="hidden" name="items">
+                </div>
+            </button>
+        </form>
     <% } %>
 </div>

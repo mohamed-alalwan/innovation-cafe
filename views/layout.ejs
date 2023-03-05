@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovation Cafe</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="/scripts/formSteps.js"></script>
+    <script src="/scripts/formSteps.js" defer></script>
+    <% if (!locals.user) { %>
+        <script src="/scripts/cart.js" defer></script>
+    <% } %>
     <script type="module" src="/scripts/auth.js" defer></script>
 </head>
 

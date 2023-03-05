@@ -1,9 +1,25 @@
 const User = require('../models/User');
+const Item = require('../models/Item');
 
 //go to cart
 exports.cart_index_get = async (req, res) => {
-    res.render('item/cart', {
-    });
+    if (req.query.items) {
+        const itemIDs = req.query.items.split(',');
+        const items = [];
+        for (let i = 0; i < itemIDs.length; i++) {
+            await Item.findById(itemIDs[i])
+                .then(item => {
+                    items.push(item);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+        res.locals.items = items;
+        res.render('item/cart');
+    } else {
+        res.render('item/cart');
+    }
 }
 
 //add to cart

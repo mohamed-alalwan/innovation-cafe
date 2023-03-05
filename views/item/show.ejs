@@ -27,7 +27,7 @@
         <% } %>
         <div>
             <a href="/cart/add?id=<%= item.id %>" style="text-decoration: none;">
-                <button class="btn addCart"> Add to Cart</button>
+                <button id="addItemBtn" class="btn addCart" data-id="<%= item.id %>"> Add to Cart</button>
             </a>
             
         </div>
