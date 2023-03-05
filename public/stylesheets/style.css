@@ -65,7 +65,7 @@ header nav {
 
 .ctaAuth a {
     text-align: center;
-    padding: 10px 30px;
+    padding: 12px 30px 10px 30px;
     text-decoration: none;
     font-size: 18px;
     color: #FFFFFF;
@@ -654,6 +654,7 @@ footer {
 }
 
 .filterBtn {
+    padding-top: 15px !important;
     margin: 10px;
     border: 2px solid black;
     padding: 10px;
@@ -780,4 +781,25 @@ th {
 #message{
     color: rgb(90, 90, 90);
     text-align: center;
+}
+
+/*error page */
+.error_page{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.error_page h1{
+    font-size: 2.5rem;
+}
+
+/* Cart Btn */
+.cartBtn{
+    padding: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    background-color: inherit !important;
+    border: 0 !important;
 }

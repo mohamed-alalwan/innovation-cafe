@@ -4,13 +4,11 @@ const admin = require('firebase-admin');
 
 // HTTP Sign up Get
 exports.auth_signup_get = async (req, res) => {
-    res.render('auth/signup', {
-    });
+    res.render('auth/signup');
 }
 
 // HTTP Sign up Post
 exports.auth_signup_post = async (req, res) => {
-    console.log(req.body);
     const idToken = req.body.idToken;
     admin.auth().verifyIdToken(idToken)
         .then((decodedToken) => {
@@ -30,7 +28,7 @@ exports.auth_signup_post = async (req, res) => {
                 console.log('User created =>', user);
                 createSessionCookie(res, req);
             }).catch(err => {
-                console.log(err);
+                console.log('Error creating user =>', err);
                 res.json({ success: false });
             });
         })
@@ -46,7 +44,6 @@ exports.auth_signin_get = async (req, res) => {
 
 // HTTP Sign in Post
 exports.auth_signin_post = async (req, res) => {
-    console.log(req.body);
     createSessionCookie(res, req);
 }
 
