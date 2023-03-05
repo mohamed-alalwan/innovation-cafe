@@ -1,4 +1,5 @@
 <%- include('./partial/header.ejs') %>
+<div class = "cartPageContainer">
 <% if (locals.user) { %>
     <% if (locals.user.cart.length> 0) { %>
         <table>
@@ -57,7 +58,6 @@
             <% } %>
         </div>
 
-
 <% } else { //guest%>
     <% if (locals.items && locals.items.length > 0) { %>
         <table>
@@ -95,7 +95,7 @@
                         </tr>
                         <% }) %>
         </table>
-        <div>
+        <div class="cartSummary">
             <div class="total-price">
                 <h2>Total Price:</h2>
                 <p class="SingUpInput totalPrice">
@@ -114,5 +114,5 @@
             <a class="btn width50" href="/item/index">Continue Shopping</a>
         </div>
     <% } %>
-
 <% } %>
+</div>
