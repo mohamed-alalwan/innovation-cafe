@@ -412,6 +412,11 @@ footer {
     color: #1e1e1e;
 }
 
+.haveAcct{
+    display: block;
+    text-align: center;
+}
+
 /* Styling for the SIGN in PAGE*/
 /* Beginning of the CSS Coding */
 
@@ -574,11 +579,6 @@ footer {
     height: 220px;
 }
 
-
-/* End of the CSS coding for the Sign in */
-
-/* End of the CSS Coding */
-
 /* Show Page CSS */
 .showCenter {
     text-align: center;
@@ -693,6 +693,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    width: 100%;
 }
 
 tr,
@@ -802,4 +803,14 @@ th {
     text-decoration: none !important;
     background-color: inherit !important;
     border: 0 !important;
+}
+
+/* Cart Page Container */
+.cartPageContainer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
 }

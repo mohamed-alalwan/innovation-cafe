@@ -32,8 +32,7 @@ exports.cart_create_get = async (req, res) => {
                 //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
                 cart.push(itemID);
                 User.findByIdAndUpdate(user._id, { cart }, { new: true })
-                    .then(user => {
-                        console.log(user);
+                    .then(() => {
                         //success
                         res.redirect('/cart/index');
                     })
@@ -60,8 +59,7 @@ exports.cart_delete_get = async (req, res) => {
                 //TODO : ADD LOOP TO CHECK IF ITEM IS ALREADY IN CART
                 cart.splice(cart.indexOf(itemID), 1);
                 User.findByIdAndUpdate(user._id, { cart }, { new: true })
-                    .then(user => {
-                        console.log(user);
+                    .then(() => {
                         //success
                         res.redirect('/cart/index');
                     })

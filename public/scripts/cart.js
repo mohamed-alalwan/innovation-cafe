@@ -34,7 +34,7 @@ if (removeBtns) {
             const itemID = e.target.dataset.id;
             let items = JSON.parse(localStorage.getItem("items"));
             if (items) {
-                items.splice(itemID, 1)
+                items.splice(items.indexOf(itemID), 1)
                 localStorage.setItem("items", JSON.stringify(items));
             }
             window.location.href = '/cart/index?items=' + items;
