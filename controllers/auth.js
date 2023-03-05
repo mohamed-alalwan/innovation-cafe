@@ -25,7 +25,7 @@ exports.auth_signup_post = async (req, res) => {
                 firebaseID: firebaseID
             });
             user.save().then(() => {
-                console.log('User created =>', user);
+                console.log('User created =>', firebaseID);
                 createSessionCookie(res, req);
             }).catch(err => {
                 console.log('Error creating user =>', err);
@@ -44,7 +44,16 @@ exports.auth_signin_get = async (req, res) => {
 
 // HTTP Sign in Post
 exports.auth_signin_post = async (req, res) => {
-    createSessionCookie(res, req);
+    const idToken = req.body.idToken;
+    admin.auth().verifyIdToken(idToken)
+        .then((decodedToken) => {
+            const firebaseID = decodedToken.uid;
+            console.log('User signed in =>', firebaseID);
+            createSessionCookie(res, req);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
 async function createSessionCookie(res, req) {
