@@ -834,7 +834,7 @@ th {
     .ctaAuth{
         margin: 0;
     }
-    .titleContainer{
+    .titleContainer .logo{
         padding: 0;
     }
     .ctaHeader{
