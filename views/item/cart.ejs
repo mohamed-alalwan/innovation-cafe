@@ -3,14 +3,17 @@
 <% if (locals.user) { %>
     <% if (locals.user.cart.length> 0) { %>
         <table>
-            <tr>
-                <th>Image</th>
-                <th>Item</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
             <% let total=0 %>
                 <% locals.user.cart.forEach(cartItem=> { %>
                     <% total +=parseFloat(cartItem.price)%>
@@ -35,7 +38,8 @@
                                 <a href="/cart/delete?id=<%= cartItem.id %>">Remove</a>
                             </td>
                         </tr>
-                        <% }) %>
+                <% }) %>
+            </tbody>
         </table>
     
         <div>
@@ -61,17 +65,20 @@
 <% } else { //guest%>
     <% if (locals.items && locals.items.length > 0) { %>
         <table>
-            <tr>
-                <th>Image</th>
-                <th>Item</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
             <% let total=0 %>
                 <% locals.items.forEach(cartItem=> { %>
                     <% total +=parseFloat(cartItem.price)%>
+                    <tbody>
                         <tr>
                             <td>
                                 <img src="<%= cartItem.imageURL%>" height="100" width="100"
@@ -93,7 +100,8 @@
                                 <a class="remove" data-id="<%= cartItem.id %>" href="/cart/index">Remove</a>
                             </td>
                         </tr>
-                        <% }) %>
+                    </tbody>
+                <% }) %>
         </table>
         <div class="cartSummary">
             <div class="total-price">

@@ -2,7 +2,8 @@
 const items = JSON.parse(localStorage.getItem("items"));
 const cartText = document.getElementsByTagName('h6')[0];
 if (cartText) {
-    cartText.textContent = items ? items.length : 0;
+    const itemsCount = items ? items.length : 0
+    cartText.textContent = itemsCount;
 }
 const cartItems = document.getElementsByName('items')[0];
 if (cartItems) {
