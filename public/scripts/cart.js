@@ -42,7 +42,3 @@ if (removeBtns) {
         });
     }
 }
-
-
-
-
