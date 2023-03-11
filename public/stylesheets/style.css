@@ -259,11 +259,8 @@ footer {
 /* the Sign Up Styling has been used for the Sign Up Sign In and Adding items */
 /* Page styling */
 .SignUpPage {
-    display: grid;
-    place-items: center;
-    padding: 1rem;
+    margin: 40px 0;
     min-height: 100vh;
-    margin: 10px 0;
 }
 
 .form {
@@ -315,6 +312,10 @@ footer {
 .width50 {
     width: 50%;
 
+}
+
+.width100 {
+    width: 100%;
 }
 
 .rightBtn {
@@ -548,7 +549,7 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .itemContainer > a {
@@ -605,6 +606,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 40px 0;
 }
 
 .profile-main-container div{
@@ -614,10 +616,13 @@ footer {
     align-items: center;
     padding: 20px;
     width: 80%;
-    margin: 20px 0;
     background-color: #edefed;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-main-container div:not(:last-child){
+    margin-bottom: 30px;
 }
 
 .profile-main-container div h2{
@@ -657,7 +662,7 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px 0 20px 0;
+    margin-top: 40px ;
     justify-content: center;
 }
 
@@ -694,10 +699,8 @@ footer {
 }
 
 /* Table */
-
 table {
     border-spacing: 0px;
-    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -712,7 +715,6 @@ th {
 }
 
 /* Cart Container */
-
 .total-price{
     display: flex;
     flex-direction: column;
@@ -724,13 +726,16 @@ th {
 .cartButtonsContainer{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
-.cartButtonsContainer button{
-    margin: 5px;
+.cartButtonsContainer a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .notFound{
@@ -740,26 +745,11 @@ th {
 /* Cart */
 .totalPrice {
     display: block;
-    width: 92%;
-    padding: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 0;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     text-align: center;
-}
-
-.shoppinBtn {
-    border: none;
-    height: 100%;
-    width: 100%;
-    color: white;
-}
-
-.shoppinBtn:hover {
-    color: #1E1E1E;
-}
-
-.chkBtn {
-    height: 46px;
 }
 
 /*Loader*/
@@ -812,6 +802,7 @@ th {
     text-decoration: none !important;
     background-color: inherit !important;
     border: 0 !important;
+    margin-right: 20px !important;
 }
 
 /* Cart Page Container */
@@ -819,9 +810,8 @@ th {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 80%;
-    margin: auto;
+    margin: 40px auto;
 }
 
 /*Responsive Mobile 1000px*/
@@ -839,6 +829,7 @@ th {
     }
     .ctaHeader{
         margin: 0;
+        padding: 0;
     }
     .profile-container{
         margin: 0;
@@ -853,13 +844,16 @@ th {
     /*sub nav*/
     .sub-nav{
         flex-direction: row;
-        justify-content:center;
+        justify-content: space-around;
         height: 100%;
     }
     .sub-nav .header{
         flex-direction: column;
         width: 100%;
         text-align: center;
+    }
+    .cartBtn{
+        margin-right: 0 !important;
     }
     /* cart table */
 	table, thead, tbody, th, td, tr { 
@@ -901,17 +895,5 @@ th {
         height: 20px;
         width: 40px;
         margin: auto;
-    }
-    /*cart buttons*/
-    .cartButtonsContainer{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin: auto;
-        padding-bottom: 40px;
-    }
-    .cartButtonsContainer button{
-        margin: 0 !important;
-        height: 100% !important;
     }
 }
