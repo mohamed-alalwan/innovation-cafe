@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-    totalPrice: {type:Number},
+    totalPrice: { type: Number },
     area: String,
     block: String,
     street: String,
@@ -12,9 +12,9 @@ const orderSchema = mongoose.Schema({
         ref: 'Item'
     }]
 },
-{
-    timestamps: true //means createdAt and updatedAt.
-})
+    {
+        timestamps: true //means createdAt and updatedAt.
+    })
 
 //Model.
 const Order = mongoose.model("Order", orderSchema);
