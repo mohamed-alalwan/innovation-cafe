@@ -17,9 +17,8 @@ https://trello.com/b/078mfco7/project
 - Firebase Auth (Sign-up, Sign-in, Sign-out, Password Reset, etc)
 - Profile Management
 - Admin -> Item Management (Add, Edit, and Delete)
+- Customers and Guest Users -> (Add Items to cart, and View Cart)
 - Menu (Item List, Search Item, and Category Filter)
-- Add Items to cart
-- View Cart
 - Responsive Design
 
 ## Technology used
@@ -41,8 +40,6 @@ https://trello.com/b/078mfco7/project
 
 ## Unsolved Issue
 1. Image must be included whenever editing the item or the profile and this issue can be solved by making seperate method that accounts for no image input. And add a check whether an image input is detected or not.
-2. User login disconnection and this issue can be solved by storing the session and cookie to preserve the state of the authentication.
-3. The user cannot order if he is not signed in and this issue can be solved by making a guest user that makes account for none authenticated users.
 
 ## Future Enhancement
 1. To make the App media friendly.
