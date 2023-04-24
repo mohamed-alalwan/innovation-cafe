@@ -17,7 +17,7 @@ https://trello.com/b/078mfco7/project
 - Firebase Auth (Sign-up, Sign-in, Sign-out, Password Reset, etc)
 - Profile Management
 - Admin -> Item Management (Add, Edit, and Delete)
-- Menu -> Item List
+- Menu (Item List, Search Item, and Category Filter)
 - Add Items to cart
 - View Cart
 - Responsive Design
