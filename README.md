@@ -1,4 +1,8 @@
-# Project@: innovation-cafe
+# Innovation Cafe
+A coffee shop ordering website, offers customers various categories of dishes.
+
+<a href="https://innovation-cafe-website.onrender.com/" target="_blank">Deployed Link</a>
+
 ## ERD
 https://www.figma.com/file/DWx4fxEwYZKnhxA6w7jQts/Models?node-id=0%3A1&t=TaaaB8ZV2hki4Emr-1
 
@@ -7,9 +11,6 @@ https://www.figma.com/file/6dEYevHm9PS1g9bo3BH8mP/Innovation-Cafe-Layout?node-id
 
 ## Trello:
 https://trello.com/b/078mfco7/project
-
-## Web App Link
-https://innovation-cafe-website.onrender.com/
 
 ## User Stories
 - As a user, I want to be able to sign up, sing in, and sign out.
