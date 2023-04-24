@@ -3,7 +3,7 @@ A coffee shop ordering website, offers customers various categories of dishes.
 
 <a href="https://innovation-cafe-website.onrender.com/" target="_blank">Deployed Link</a>
 
-## ERD (Models)
+## ERD (Models Only)
 https://www.figma.com/file/DWx4fxEwYZKnhxA6w7jQts/Models?node-id=0%3A1&t=TaaaB8ZV2hki4Emr-1
 
 ## Wireframe:
