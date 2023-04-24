@@ -3,7 +3,7 @@ A coffee shop ordering website, offers customers various categories of dishes.
 
 <a href="https://innovation-cafe-website.onrender.com/" target="_blank">Deployed Link</a>
 
-## ERD
+## ERD (Models)
 https://www.figma.com/file/DWx4fxEwYZKnhxA6w7jQts/Models?node-id=0%3A1&t=TaaaB8ZV2hki4Emr-1
 
 ## Wireframe:
@@ -12,12 +12,15 @@ https://www.figma.com/file/6dEYevHm9PS1g9bo3BH8mP/Innovation-Cafe-Layout?node-id
 ## Trello:
 https://trello.com/b/078mfco7/project
 
-## User Stories
-- As a user, I want to be able to sign up, sing in, and sign out.
-- As a user, I want to be able to see my profile and change my information.
-- As a user, I want to have a menu of all the items and add more items, edit them, or delete them.
-- As a user, I want to be able to reset my password if I forget it.
-- As a user, I want to be able to add items to my cart and see thier details and the total price.
+## Features:
+- Firebase Role-based Authentication (Customer and Administrator)
+- Firebase Auth (Sign-up, Sign-in, Sign-out, Password Reset, etc)
+- Profile Management
+- Admin -> Item Management (Add, Edit, and Delete)
+- Menu -> Item List
+- Add Items to cart
+- View Cart
+- Responsive Design
 
 ## Technology used
 - EJS
@@ -28,6 +31,13 @@ https://trello.com/b/078mfco7/project
 - Firebase
 - Multer
 - cors
+
+## User Stories
+- As a user, I want to be able to sign up, sing in, and sign out.
+- As a user, I want to be able to see my profile and change my information.
+- As a user, I want to have a menu of all the items and add more items, edit them, or delete them.
+- As a user, I want to be able to reset my password if I forget it.
+- As a user, I want to be able to add items to my cart and see thier details and the total price.
 
 ## Unsolved Issue
 1. Image must be included whenever editing the item or the profile and this issue can be solved by making seperate method that accounts for no image input. And add a check whether an image input is detected or not.
